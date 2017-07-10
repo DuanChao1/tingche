@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="x5-fullscreen" content="true"/>
+    <meta name="full-screen" content="yes"/>  
+    <title></title>
+    <link type="text/css" rel="stylesheet" href="./static/css/reset.css">
+    <link type="text/css" rel="stylesheet" href="./static/css/index.css">
+    <script type="text/javascript" src="static/js/jquery-1.11.3.min.js"></script>
+  </head>
+
+  <body>
+    <app></app>   
+  </body>
+
+  <script type="text/javascript">
+    document.setTitle = function(t) {
+      document.title = t;
+      var i = document.createElement('iframe');
+      //i.src = '//m.baidu.com/favicon.ico';
+      i.style.display = 'none';
+      i.onload = function() {
+        setTimeout(function(){
+          i.remove();
+        }, 9)
+      }
+      document.body.appendChild(i);
+    }
+  </script>
+</html>

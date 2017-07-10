@@ -1,0 +1,7 @@
+/*公共样式*/
+.refresh{
+	display: inline-block;
+	width: .15rem;
+	height: .17rem;
+	background-image: require('../../src/images/refresh.png');
+}
