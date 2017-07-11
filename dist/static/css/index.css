@@ -1,0 +1,21 @@
+/*公共样式*/
+.refresh{
+	position: absolute;
+	top: .16rem;
+	right: .15rem;
+	display: inline-block;
+	width: .15rem;
+	height: .17rem;
+	background: url('../images/refresh.png');
+	background-size: 100% 100%;
+}
+.return{
+	position: absolute;
+	top: .16rem;
+	left: .15rem;
+	display: inline-block;
+	width: .1rem;
+	height: .17rem;
+	background: url('../images/ico-left.png');
+	background-size: 100% 100%;
+}
