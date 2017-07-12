@@ -37,10 +37,12 @@
 			<div class="getcard"><img src="../../../static/images/card.png" /></div>
 			<p>领卡</p>
 		</div>
-		<div class="menuBox">
-			<div class="bindcard"><img src="../../../static/images/bindCard.png" /></div>
-			<p>绑卡</p>
-		</div>
+		<a v-link="{path: '/bindCard'}">
+			<div class="menuBox">
+				<div class="bindcard"><img src="../../../static/images/bindCard.png" /></div>
+				<p>绑卡</p>
+			</div>
+		</a>
 	</section>
 </template>
 <script>

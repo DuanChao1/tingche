@@ -9,6 +9,16 @@ const routers = {
       		require(['./components/bindCard/index.vue'], resolve)
     	}
   	},
+    '/query': {
+      component (resolve) {
+          require(['./components/queryBalance/index.vue'], resolve)
+      }
+    },
+    '/balance': {
+      component (resolve) {
+          require(['./components/balance/index.vue'], resolve)
+      }
+    },
 }
 
 export default routers

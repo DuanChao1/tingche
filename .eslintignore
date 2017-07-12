@@ -3,6 +3,8 @@ config/*.js
 static/js/*.js
 src/components/userCenter/*.vue
 src/components/bindCard/*.vue
+src/components/queryBalance/*.vue
+src/components/balance/*.vue
 src/services/*.js
 src/controllers/*.js
 src/*.js
