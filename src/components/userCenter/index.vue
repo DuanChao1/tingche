@@ -63,18 +63,6 @@ export default{
 }
 </script>
 <style scoped>
-header{
-	position: relative;
-	height: .5rem;
-	line-height: .5rem;
-	background: #1aa2ff;
-}
-header p{
-	text-align: center;
-	font-size: .17rem;
-	color: #fff;
-	font-family: '黑体';
-}
 .userInfo{
 	height: 2.35rem;
 	background: url('../../../static/images/centerBg.jpg');
