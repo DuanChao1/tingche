@@ -28,7 +28,7 @@
 		<div class="card-pic"><img src="../../../static/images/card_pic.png" /></div>
 	</section>
 	<div class="bindBtn">立即绑定</div>
-	<p class="getCard">还没有一卡停？<span>立即领卡</span></p>
+	<p class="getCard">还没有一卡停？<a v-link="{path: '/leadCard'}">立即领卡</a></p>
 </template>
 <script>
 export default{
@@ -129,7 +129,7 @@ export default{
 	color: #999999;
 	text-align: center;
 }
-.getCard>span{
+.getCard>a{
 	color: #ff9037;
 }
 </style>

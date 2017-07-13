@@ -1,7 +1,7 @@
 <template>
 	<header class="white_bg">
 		<span class="return" v-on:click="returnTo()"></span>
-		<p>登录</p>
+		<p>注册</p>
 	</header>
 	<div class="logo"><img src="../../../static/images/logo.png" /></div>
 	<section class="inputCard">
@@ -20,9 +20,14 @@
 			<input type="text" id="safe" />
 			<div class="getCode">获取验证码</div>
 		</div>
+		<div class="promptBox">
+			<span class="prompt"></span>
+			我已阅读并同意
+			<span class="promptText">《一卡停用户服务协议》</span>
+		</div>
 	</section>
-	<div class="loginBtn">登录</div>
-	<p class="font_text">没有账号？<a v-link="{path: '/register'}">立即注册</a></p>
+	<div class="loginBtn">注册</div>
+	<p class="font_text">已有账号？<a v-link="{path: '/login'}">立即登录</a></p>
 </template>
 <script>
 export default{
@@ -31,7 +36,7 @@ export default{
     	}
   	},
   	ready: function () {
-  		document.setTitle('登录')
+  		document.setTitle('注册')
   	},
    	methods: {
    		returnTo () {
@@ -129,5 +134,22 @@ export default{
 }
 .font_text>a{
 	color: #ff9037;
+}
+.promptBox{
+	font-size: .11rem;
+	color: #999999;
+}
+.prompt{
+	display: inline-block;
+	width: .17rem;
+	height: .17rem;
+	background: url('../../../static/images/ico_check.png');
+	background-size: 100% 100%;
+	vertical-align: -4px;
+    margin-right: 4px;
+}
+.promptText{
+	font-size: .11rem;
+	color: #1aa2ff;
 }
 </style>

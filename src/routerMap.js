@@ -9,6 +9,11 @@ const routers = {
     	require(['./components/bindCard/index.vue'], resolve)
   	}
 	},
+  '/leadCard': {
+    component (resolve) {
+      require(['./components/leadCard/index.vue'], resolve)
+    }
+  },
   '/query': {
     component (resolve) {
       require(['./components/queryBalance/index.vue'], resolve)
@@ -22,6 +27,11 @@ const routers = {
   '/login': {
     component (resolve) {
       require(['./components/login/index.vue'], resolve)
+    }
+  },
+  '/register': {
+    component (resolve) {
+      require(['./components/register/index.vue'], resolve)
     }
   },
 }

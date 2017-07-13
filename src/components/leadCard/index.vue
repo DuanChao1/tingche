@@ -1,9 +1,8 @@
 <template>
-	<header class="white_bg">
+	<header>
 		<span class="return" v-on:click="returnTo()"></span>
-		<p>登录</p>
+		<p>领卡</p>
 	</header>
-	<div class="logo"><img src="../../../static/images/logo.png" /></div>
 	<section class="inputCard">
 		<div>
 			<label for="phone">
@@ -20,9 +19,37 @@
 			<input type="text" id="safe" />
 			<div class="getCode">获取验证码</div>
 		</div>
+		<div>
+			<label for="user">
+				<span class="user"></span>
+				姓名
+			</label>
+			<input type="text" id="user" />
+		</div>
+		<div>
+			<div>
+				<label for="province">
+					<span class="province"></span>
+					省市
+				</label>
+				<input type="text" id="province" />
+			</div>
+			<div>
+				<label for="area">
+					<span class="area"></span>
+					区县
+				</label>
+				<input type="text" id="area" />
+			</div>
+		</div>
+		<div class="promptBox">
+			<span class="prompt"></span>
+			我已阅读并同意
+			<span class="promptText">《一卡停用户服务协议》</span>
+		</div>
 	</section>
-	<div class="loginBtn">登录</div>
-	<p class="font_text">没有账号？<a v-link="{path: '/register'}">立即注册</a></p>
+	<div class="loginBtn">确定</div>
+	<p class="font_text">已有一卡停？<a v-link="{path: '/bindCard'}">立即绑卡</a></p>
 </template>
 <script>
 export default{
@@ -31,7 +58,7 @@ export default{
     	}
   	},
   	ready: function () {
-  		document.setTitle('登录')
+  		document.setTitle('领卡')
   	},
    	methods: {
    		returnTo () {
@@ -41,11 +68,6 @@ export default{
 }
 </script>
 <style scoped>
-.logo{
-	width: .85rem;
-	height: 1.03rem;
-	margin: .55rem auto .27rem;
-}
 .inputCard{
 	padding: 0 .15rem;
 	margin-top: .16rem;
@@ -67,7 +89,7 @@ export default{
 	border: 1px solid #d7d8d9;
 	border-radius: .4rem;
 	width: 100%;
-	padding-left: .9rem;
+	padding-left: .7rem;
 	padding-right: .2rem;
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -78,6 +100,7 @@ export default{
 	padding-left: 1rem;
 }
 .inputCard input#safe{
+	padding-left: .9rem;
 	padding-right: 1.1rem;
 }
 .phone{
@@ -96,6 +119,15 @@ export default{
 	margin-right: 2px;
 	vertical-align: -2px;
 	background: url('../../../static/images/ico_safe.png');
+	background-size: 100% 100%;
+}
+.user{
+	display: inline-block;
+	width: .13rem;
+	height: .16rem;
+	margin-right: 2px;
+	vertical-align: -2px;
+	background: url('../../../static/images/user.png');
 	background-size: 100% 100%;
 }
 .getCode{
@@ -129,5 +161,22 @@ export default{
 }
 .font_text>a{
 	color: #ff9037;
+}
+.promptBox{
+	font-size: .11rem;
+	color: #999999;
+}
+.prompt{
+	display: inline-block;
+	width: .17rem;
+	height: .17rem;
+	background: url('../../../static/images/ico_check.png');
+	background-size: 100% 100%;
+	vertical-align: -4px;
+    margin-right: 4px;
+}
+.promptText{
+	font-size: .11rem;
+	color: #1aa2ff;
 }
 </style>
