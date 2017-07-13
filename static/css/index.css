@@ -26,6 +26,16 @@ header{
 	line-height: .5rem;
 	background: #1aa2ff;
 }
+header.white_bg{
+	background: #fff;
+}
+header.white_bg p{
+	color: #333333;
+}
+header.white_bg .return{
+	background: url('../images/ico-leftBlock.png');
+	background-size: 100% 100%;
+}
 header p{
 	text-align: center;
 	font-size: .17rem;

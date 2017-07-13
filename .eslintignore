@@ -5,6 +5,7 @@ src/components/userCenter/*.vue
 src/components/bindCard/*.vue
 src/components/queryBalance/*.vue
 src/components/balance/*.vue
+src/components/login/*.vue
 src/services/*.js
 src/controllers/*.js
 src/*.js

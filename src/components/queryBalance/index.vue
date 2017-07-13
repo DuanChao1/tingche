@@ -68,6 +68,7 @@ export default{
 	border-radius: .4rem;
 	width: 100%;
 	padding-left: .8rem;
+	padding-right: .2rem;
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
