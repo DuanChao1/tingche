@@ -27,19 +27,29 @@
 			<input type="text" id="user" />
 		</div>
 		<div>
-			<div>
+			<div class="minBox">
 				<label for="province">
 					<span class="province"></span>
 					省市
 				</label>
-				<input type="text" id="province" />
+				<select id="province">
+				  	<option value ="volvo">Volvo</option>
+				  	<option value ="saab">Saab</option>
+				  	<option value="opel">Opel</option>
+				  	<option value="audi">Audi</option>
+				</select>
 			</div>
-			<div>
+			<div class="minBox">
 				<label for="area">
 					<span class="area"></span>
 					区县
 				</label>
-				<input type="text" id="area" />
+				<select id="area">
+				  	<option value ="volvo">Volvo</option>
+				  	<option value ="saab">Saab</option>
+				  	<option value="opel">Opel</option>
+				  	<option value="audi">Audi</option>
+				</select>
 			</div>
 		</div>
 		<div class="promptBox">
@@ -95,6 +105,21 @@ export default{
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     font-size: .14rem;
+}
+.inputCard select{
+	height: .44rem;
+	border: 1px solid #d7d8d9;
+	border-radius: .4rem;
+	width: 100%;
+	padding-left: .7rem;
+	padding-right: .2rem;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    font-size: .14rem;
+    appearance:none;
+  	-moz-appearance:none;
+  	-webkit-appearance:none;
 }
 .inputCard input#phone{
 	padding-left: 1rem;
@@ -178,5 +203,10 @@ export default{
 .promptText{
 	font-size: .11rem;
 	color: #1aa2ff;
+}
+.minBox{
+	display: inline-block;
+    width: 49%;
+    position: relative;
 }
 </style>

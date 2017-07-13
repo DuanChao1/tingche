@@ -33,10 +33,12 @@
 			<div class="recharge"><img src="../../../static/images/rechargeRecord.png" /></div>
 			<p>充值记录</p>
 		</div>
+		<a v-link="{path: '/leadCard'}">
 		<div class="menuBox leftMenu">
 			<div class="getcard"><img src="../../../static/images/card.png" /></div>
 			<p>领卡</p>
 		</div>
+		</a>
 		<a v-link="{path: '/bindCard'}">
 			<div class="menuBox">
 				<div class="bindcard"><img src="../../../static/images/bindCard.png" /></div>
