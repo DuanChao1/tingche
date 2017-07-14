@@ -229,6 +229,9 @@ export default{
 	padding-left: 1rem;
     padding-right: .1rem;
 }
+.inputCard input#province,.inputCard input#area{
+	padding-left: .5rem;
+}
 .phone{
 	display: inline-block;
 	width: .13rem;
