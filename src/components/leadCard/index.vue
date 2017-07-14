@@ -32,25 +32,24 @@
 					<span class="province"></span>
 					省市
 				</label>
-				<select id="province">
-				  	<option value ="volvo">Volvo</option>
-				  	<option value ="saab">Saab</option>
-				  	<option value="opel">Opel</option>
-				  	<option value="audi">Audi</option>
-				</select>
+				<input v-model="city" type="text" id="province" readonly unselectable="on" v-on:focus="onFocus(1)" />
+				<span class="list"></span>
 			</div>
 			<div class="minBox">
 				<label for="area">
 					<span class="area"></span>
 					区县
 				</label>
-				<select id="area">
-				  	<option value ="volvo">Volvo</option>
-				  	<option value ="saab">Saab</option>
-				  	<option value="opel">Opel</option>
-				  	<option value="audi">Audi</option>
-				</select>
+				<input v-model="area" type="text" id="area" readonly unselectable="on" v-on:focus="onFocus(2)" />
+				<span class="list"></span>
 			</div>
+		</div>
+		<div>
+			<label for="address">
+				<span class="address"></span>
+				收件地址
+			</label>
+			<input type="text" id="address" />
 		</div>
 		<div class="promptBox">
 			<span class="prompt"></span>
@@ -60,11 +59,57 @@
 	</section>
 	<div class="loginBtn">确定</div>
 	<p class="font_text">已有一卡停？<a v-link="{path: '/bindCard'}">立即绑卡</a></p>
+	<footer>
+		<p>您注册成功后，我们会将一卡停卡，快递至您的收件地址。</p>
+		<p>如有任何问题，请致电：<span>4000-123-868</span></p>
+	</footer>
+	<div class="tipBox" v-bind:class="{'hide': cityCode == 0}" v-on:click="hideTip()">
+		<div class="tip">
+			<div>
+				<label><input name="city" type="radio" value="北京" v-model="city" />北京</label>
+			</div>
+			<div>
+				<label><input name="city" type="radio" value="上海" v-model="city" />上海</label>
+			</div>
+			<div>
+				<label><input name="city" type="radio" value="杭州" v-model="city" />杭州</label>
+			</div>
+			<div>
+				<label><input name="city" type="radio" value="天津" v-model="city" />天津</label>
+			</div>
+			<div>
+				<label><input name="city" type="radio" value="河北" v-model="city" />河北</label>
+			</div>
+		</div>
+	</div>
+	<div class="tipBox" v-bind:class="{'hide': areaCode == 0}" v-on:click="hideTip()">
+		<div class="tip">
+			<div>
+				<label><input name="area" type="radio" value="东城区" v-model="area" />东城区</label>
+			</div>
+			<div>
+				<label><input name="area" type="radio" value="朝阳区" v-model="area" />朝阳区</label>
+			</div>
+			<div>
+				<label><input name="area" type="radio" value="海淀区" v-model="area" />海淀区</label>
+			</div>
+			<div>
+				<label><input name="area" type="radio" value="石景山区" v-model="area" />石景山区</label>
+			</div>
+			<div>
+				<label><input name="area" type="radio" value="顺义区" v-model="area" />顺义区</label>
+			</div>
+		</div>
+	</div>
 </template>
 <script>
 export default{
   	data () {
     	return {
+    		city: '',
+    		cityCode: 0,
+    		area: '',
+    		areaCode: 0,
     	}
   	},
   	ready: function () {
@@ -74,10 +119,58 @@ export default{
    		returnTo () {
    			window.history.back()
    		},
+   		onFocus (code) {
+   			if(code == 1){
+   				this.cityCode = 1
+   			}
+   			if(code == 2){
+   				this.areaCode = 1
+   			}
+   		},
+   		hideTip () {
+   			this.cityCode = 0
+   			this.areaCode = 0
+   		}
   	}
 }
 </script>
 <style scoped>
+.tipBox{
+	position: absolute;
+    background: rgba(0,0,0,0.6);
+    z-index: 100;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+}
+.tip{
+	width: 80%;
+    height: 3rem;
+    position: absolute;
+    top: 50%;
+    margin-top: -1.5rem;
+    margin: -1.5rem auto 0;
+    left: 50%;
+    margin-left: -40%;
+    background: #fff;
+    border-radius: .08rem;
+    overflow: scroll;
+    padding: .2rem;
+}
+.tip>div{
+	margin-bottom: .1rem;
+    font-size: .14rem;
+    height: .2rem;
+    line-height: .18rem;
+}
+.tip>div>label{
+	display: inline-block;
+	width: 100%;
+}
+.tip input{
+	margin-right: .1rem;
+    vertical-align: top;
+}
 .inputCard{
 	padding: 0 .15rem;
 	margin-top: .16rem;
@@ -104,7 +197,11 @@ export default{
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
-    font-size: .14rem;
+    font-size: .12rem;
+}
+.inputCard input:disabled{
+	background: #fff;
+	color: #000;
 }
 .inputCard select{
 	height: .44rem;
@@ -128,6 +225,10 @@ export default{
 	padding-left: .9rem;
 	padding-right: 1.1rem;
 }
+.inputCard input#address{
+	padding-left: 1rem;
+    padding-right: .1rem;
+}
 .phone{
 	display: inline-block;
 	width: .13rem;
@@ -146,6 +247,17 @@ export default{
 	background: url('../../../static/images/ico_safe.png');
 	background-size: 100% 100%;
 }
+.list{
+	position: absolute;
+    top: 50%;
+    margin-top: -.045rem;
+    right: .14rem;
+	display: inline-block;
+	width: .15rem;
+	height: .09rem;
+	background: url('../../../static/images/ico_bottom.png');
+	background-size: 100% 100%;
+}
 .user{
 	display: inline-block;
 	width: .13rem;
@@ -153,6 +265,15 @@ export default{
 	margin-right: 2px;
 	vertical-align: -2px;
 	background: url('../../../static/images/user.png');
+	background-size: 100% 100%;
+}
+.address{
+	display: inline-block;
+	width: .12rem;
+	height: .15rem;
+	margin-right: 2px;
+	vertical-align: -2px;
+	background: url('../../../static/images/ico_address.png');
 	background-size: 100% 100%;
 }
 .getCode{
@@ -208,5 +329,17 @@ export default{
 	display: inline-block;
     width: 49%;
     position: relative;
+}
+footer{
+	position: absolute;
+    bottom: .2rem;
+}
+footer>p{
+	font-size: .11rem;
+	color: #b5b5b5;
+	text-align: center;
+}
+footer>p>span{
+	color: #1aa2ff;
 }
 </style>
