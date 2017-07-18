@@ -6,6 +6,7 @@ src/components/bindCard/*.vue
 src/components/queryBalance/*.vue
 src/components/balance/*.vue
 src/components/rechargeRecord/*.vue
+src/components/parkRecord/*.vue
 src/components/login/*.vue
 src/components/register/*.vue
 src/components/leadCard/*.vue

@@ -25,21 +25,23 @@
 		<div class="bg"></div>
 	</section>
 	<section class="userMenu">
-		<div class="menuBox leftMenu">
-			<div class="park"><img src="../../../static/images/parkRecord.png" /></div>
-			<p>停车记录</p>
-		</div>
+		<a v-link="{path: '/parkRecord'}">
+			<div class="menuBox leftMenu">
+				<div class="park"><img src="../../../static/images/parkRecord.png" /></div>
+				<p>停车记录</p>
+			</div>
+		</a>
 		<a v-link="{path: '/rechargeRecord'}">
-		<div class="menuBox">
-			<div class="recharge"><img src="../../../static/images/rechargeRecord.png" /></div>
-			<p>充值记录</p>
-		</div>
+			<div class="menuBox">
+				<div class="recharge"><img src="../../../static/images/rechargeRecord.png" /></div>
+				<p>充值记录</p>
+			</div>
 		</a>
 		<a v-link="{path: '/leadCard'}">
-		<div class="menuBox leftMenu">
-			<div class="getcard"><img src="../../../static/images/card.png" /></div>
-			<p>领卡</p>
-		</div>
+			<div class="menuBox leftMenu">
+				<div class="getcard"><img src="../../../static/images/card.png" /></div>
+				<p>领卡</p>
+			</div>
 		</a>
 		<a v-link="{path: '/bindCard'}">
 			<div class="menuBox">

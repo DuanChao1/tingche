@@ -39,6 +39,11 @@ const routers = {
       require(['./components/rechargeRecord/index.vue'], resolve)
     }
   },
+  '/parkRecord': {
+    component (resolve) {
+      require(['./components/parkRecord/index.vue'], resolve)
+    }
+  },
 }
 
 export default routers
