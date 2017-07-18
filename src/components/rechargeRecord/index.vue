@@ -16,8 +16,33 @@
 					<p class="price"><span>￥</span>350</p>
 					<p class="priceText">充值金额</p>
 				</div>
+				<div class="recordRight">
+					<p class="time">100小时畅停</p>
+					<p class="addTime">另送5小时</p>
+				</div>
 			</div>
 		</div>
+		<div class="record_list">
+			<div class="ico_recharge">
+				<div class="recharge"><img src="../../../static/images/ico_recharge.png" /></div>
+			</div>
+			<p><span>充值时间：</span>2017年05月03日15:36</p>
+			<div class="recordBox">
+				<div class="recordLeft">
+					<p class="price"><span>￥</span>350</p>
+					<p class="priceText">充值金额</p>
+				</div>
+				<div class="recordRight">
+					<p class="time">100小时畅停</p>
+					<p class="addTime">另送5小时</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="promptBox">
+		<span class="prompt"></span>
+		<span class="promptText">温馨提示：</span>
+		如需开具发票，请致电4000-123-868
 	</div>
 </template>
 <script>
@@ -111,5 +136,42 @@ export default{
     vertical-align: middle;
     font-size: .1rem;
     color: #999999;
+}
+.recordBox .recordRight{
+	float: left;
+    height: .9rem;
+    display: table;
+    width: 67%;
+    padding: .17rem .18rem;
+}
+.recordBox .recordRight .time{
+	font-size: .14rem;
+	color: #333333;
+}
+.recordBox .recordRight .addTime{
+	font-size: .12rem;
+	color: #666666;
+}
+
+.promptBox{
+	position: absolute;
+    bottom: .14rem;
+    left: .62rem;
+    margin-top: .2rem;
+	font-size: .11rem;
+	color: #999999;
+}
+.prompt{
+	display: inline-block;
+	width: .17rem;
+	height: .17rem;
+	background: url('../../../static/images/prompt.png');
+	background-size: 100% 100%;
+	vertical-align: -4px;
+    margin-right: 4px;
+}
+.promptText{
+	font-size: .11rem;
+	color: #ff9037;
 }
 </style>
