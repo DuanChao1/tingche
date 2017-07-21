@@ -1,0 +1,46 @@
+/*公共样式*/
+.refresh{
+	position: absolute;
+	top: .16rem;
+	right: .15rem;
+	display: inline-block;
+	width: .15rem;
+	height: .17rem;
+	background: url('../images/refresh.png');
+	background-size: 100% 100%;
+}
+.return{
+	position: absolute;
+	top: .16rem;
+	left: .15rem;
+	display: inline-block;
+	width: .1rem;
+	height: .17rem;
+	background: url('../images/ico-left.png');
+	background-size: 100% 100%;
+}
+.hide{
+	display: none !important;
+}
+header{
+	position: relative;
+	height: .5rem;
+	line-height: .5rem;
+	background: #1aa2ff;
+}
+header.white_bg{
+	background: #fff;
+}
+header.white_bg p{
+	color: #333333;
+}
+header.white_bg .return{
+	background: url('../images/ico-leftBlock.png');
+	background-size: 100% 100%;
+}
+header p{
+	text-align: center;
+	font-size: .17rem;
+	color: #fff;
+	font-family: '黑体';
+}

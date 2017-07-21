@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="x5-fullscreen" content="true"/>
+    <meta name="full-screen" content="yes"/>
+    <title>领卡</title>
+    <link type="text/css" rel="stylesheet" href="./css/reset.css">
+    <link type="text/css" rel="stylesheet" href="./css/index.css">
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <style type="text/css">
+      .tipBox{
+        position: absolute;
+        background: rgba(0,0,0,0.6);
+        z-index: 100;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+      }
+      .tip{
+        width: 80%;
+        height: 3rem;
+        position: absolute;
+        top: 50%;
+        margin-top: -1.5rem;
+        margin: -1.5rem auto 0;
+        left: 50%;
+        margin-left: -40%;
+        background: #fff;
+        border-radius: .08rem;
+        overflow: scroll;
+        padding: .2rem;
+      }
+      .tip>div{
+        margin-bottom: .1rem;
+        font-size: .14rem;
+        height: .2rem;
+        line-height: .18rem;
+      }
+      .tip>div>label{
+        display: inline-block;
+        width: 100%;
+      }
+      .tip input{
+        margin-right: .1rem;
+        vertical-align: top;
+      }
+      .inputCard{
+        padding: 0 .15rem;
+        margin-top: .16rem;
+        overflow: hidden;
+      }
+      .inputCard>div{
+        position: relative;
+        margin-bottom: .1rem;
+      }
+      .inputCard label{
+        position: absolute;
+          top: .11rem;
+          left: .18rem;
+        font-size: .14rem;
+        color: #999999;
+      }
+      .inputCard input{
+        height: .44rem;
+        border: 1px solid #d7d8d9;
+        border-radius: .4rem;
+        width: 100%;
+        padding-left: .7rem;
+        padding-right: .2rem;
+          box-sizing: border-box;
+          -webkit-box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          font-size: .12rem;
+      }
+      .inputCard input:disabled{
+        background: #fff;
+        color: #000;
+      }
+      .inputCard select{
+        height: .44rem;
+        border: 1px solid #d7d8d9;
+        border-radius: .4rem;
+        width: 100%;
+        padding-left: .7rem;
+        padding-right: .2rem;
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        font-size: .14rem;
+        appearance:none;
+        -moz-appearance:none;
+        -webkit-appearance:none;
+      }
+      .inputCard input#phone{
+        padding-left: 1rem;
+      }
+      .inputCard input#safe{
+        padding-left: .9rem;
+        padding-right: 1.1rem;
+      }
+      .inputCard input#address{
+        padding-left: 1rem;
+          padding-right: .1rem;
+      }
+      .inputCard input#province,.inputCard input#area{
+        padding-left: .5rem;
+      }
+      .phone{
+        display: inline-block;
+        width: .13rem;
+        height: .18rem;
+        margin-right: 2px;
+        vertical-align: -2px;
+        background: url('images/ico_phone.png');
+        background-size: 100% 100%;
+      }
+      .safe{
+        display: inline-block;
+        width: .13rem;
+        height: .17rem;
+        margin-right: 2px;
+        vertical-align: -2px;
+        background: url('images/ico_safe.png');
+        background-size: 100% 100%;
+      }
+      .list{
+        position: absolute;
+          top: 50%;
+          margin-top: -.045rem;
+          right: .14rem;
+        display: inline-block;
+        width: .15rem;
+        height: .09rem;
+        background: url('images/ico_bottom.png');
+        background-size: 100% 100%;
+      }
+      .user{
+        display: inline-block;
+        width: .13rem;
+        height: .16rem;
+        margin-right: 2px;
+        vertical-align: -2px;
+        background: url('images/user.png');
+        background-size: 100% 100%;
+      }
+      .address{
+        display: inline-block;
+        width: .12rem;
+        height: .15rem;
+        margin-right: 2px;
+        vertical-align: -2px;
+        background: url('images/ico_address.png');
+        background-size: 100% 100%;
+      }
+      .getCode{
+        position: absolute;
+          right: .06rem;
+          top: .044rem;
+        display: inline-block;
+        width: .95rem;
+        height: .35rem;
+        background: #ff9037;
+        color: #fff;
+        font-size: .14rem;
+        text-align: center;
+        line-height: .35rem;
+        border-radius: .2rem;
+      }
+      .loginBtn{
+        height: .43rem;
+        line-height: .43rem;
+        margin: .14rem .15rem .25rem;
+        text-align: center;
+        color: #fff;
+        font-size: .17rem;
+        background: #1aa2ff;
+        border-radius: .2rem;
+      }
+      .font_text{
+        font-size: .11rem;
+        color: #999999;
+        text-align: center;
+      }
+      .font_text>a{
+        color: #ff9037;
+      }
+      .promptBox{
+        font-size: .11rem;
+        color: #999999;
+      }
+      .prompt{
+        display: inline-block;
+        width: .17rem;
+        height: .17rem;
+        background: url('images/ico_check.png');
+        background-size: 100% 100%;
+        vertical-align: -4px;
+          margin-right: 4px;
+      }
+      .promptText{
+        font-size: .11rem;
+        color: #1aa2ff;
+      }
+      .minBox{
+        display: inline-block;
+          width: 49%;
+          position: relative;
+      }
+      footer{
+        position: absolute;
+          bottom: .2rem;
+      }
+      footer>p{
+        font-size: .11rem;
+        color: #b5b5b5;
+        text-align: center;
+      }
+      footer>p>span{
+        color: #1aa2ff;
+      }
+    </style>
+  </head>
+  <body>
+    <app>
+      <header>
+        <span class="return" ></span>
+        <p>领卡</p>
+      </header>
+      <section class="inputCard">
+        <div>
+          <label for="phone">
+            <span class="phone"></span>
+            <span>手机号码</span>
+          </label>
+          <input type="text" id="phone" />
+        </div>
+        <div>
+          <label for="safe">
+            <span class="safe"></span>
+            验证码
+          </label>
+          <input type="text" id="safe" />
+          <div class="getCode">获取验证码</div>
+        </div>
+        <div>
+          <label for="user">
+            <span class="user"></span>
+            姓名
+          </label>
+          <input type="text" id="user" />
+        </div>
+        <div>
+          <div class="minBox">
+            <label for="province">
+              <span class="province"></span>
+              省市
+            </label>
+            <select id="province">
+              <option>北京</option>
+              <option>上海</option>
+              <option>杭州</option>
+            </select>
+          </div>
+          <div class="minBox">
+            <label for="area">
+              <span class="area"></span>
+              区县
+            </label>
+            <select id="area">
+              <option>北京</option>
+              <option>上海</option>
+              <option>杭州</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <label for="address">
+            <span class="address"></span>
+            收件地址
+          </label>
+          <input type="text" id="address" />
+        </div>
+        <div class="promptBox">
+          <span class="prompt"></span>
+          我已阅读并同意
+          <span class="promptText">《一卡停用户服务协议》</span>
+        </div>
+      </section>
+      <div class="loginBtn">确定</div>
+      <p class="font_text">已有一卡停？<a href="">立即绑卡</a></p>
+      <footer>
+        <p>您注册成功后，我们会将一卡停卡，快递至您的收件地址。</p>
+        <p>如有任何问题，请致电：<span>4000-123-868</span></p>
+      </footer>
+    </app>   
+  </body>
+</html>

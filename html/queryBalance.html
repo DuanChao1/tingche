@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="x5-fullscreen" content="true"/>
+    <meta name="full-screen" content="yes"/>
+    <title>查询余额</title>
+    <link type="text/css" rel="stylesheet" href="./css/reset.css">
+    <link type="text/css" rel="stylesheet" href="./css/index.css">
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <style type="text/css">
+      .inputCard{
+        padding: 0 .15rem;
+        margin-top: .16rem;
+        overflow: hidden;
+      }
+      .inputCard>div{
+        position: relative;
+        margin-bottom: .1rem;
+      }
+      .inputCard label{
+        position: absolute;
+          top: .11rem;
+          left: .18rem;
+        font-size: .14rem;
+        color: #999999;
+      }
+      .inputCard input{
+        height: .44rem;
+        border: 1px solid #d7d8d9;
+        border-radius: .4rem;
+        width: 100%;
+        padding-left: .8rem;
+        padding-right: .2rem;
+          box-sizing: border-box;
+          -webkit-box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          font-size: .14rem;
+      }
+      .cardId{
+        display: inline-block;
+        width: .18rem;
+        height: .13rem;
+        margin-right: 4px;
+        vertical-align: -2px;
+        background: url('images/card_id.png');
+        background-size: 100% 100%;
+      }
+      .password{
+        display: inline-block;
+        width: .13rem;
+        height: .16rem;
+        margin-right: 9px;
+        vertical-align: -2px;
+        background: url('images/card_password.png');
+        background-size: 100% 100%;
+      }
+      .promptBox{
+        font-size: .11rem;
+        color: #999999;
+      }
+      .prompt{
+        display: inline-block;
+        width: .17rem;
+        height: .17rem;
+        background: url('images/prompt.png');
+        background-size: 100% 100%;
+        vertical-align: -4px;
+          margin-right: 4px;
+      }
+      .promptText{
+        font-size: .11rem;
+        color: #ff9037;
+      }
+      .card-pic{
+        width: 3.12rem;
+        margin: 0 auto;
+      }
+      .bindBtn{
+        height: .44rem;
+        line-height: .44rem;
+        background: #1aa2ff;
+        color: #fff;
+        font-size: .17rem;
+        text-align: center;
+        border-radius: .3rem;
+        margin: .18rem .15rem .25rem;
+      }
+    </style>
+  </head>
+  <body>
+    <app>
+      <header>
+        <span class="return"></span>
+        <p>查询余额</p>
+      </header>
+      <section class="inputCard">
+        <div>
+          <label>
+            <span class="cardId"></span>
+            卡号
+          </label>
+          <input type="text" />
+        </div>
+        <div>
+          <label>
+            <span class="password"></span>
+            密码
+          </label>
+          <input type="password" />
+        </div>
+        <div class="promptBox">
+          <span class="prompt"></span>
+          <span class="promptText">温馨提示：</span>
+          密码在一卡停卡条形码下方，需刮开图层
+        </div>
+      </section>
+      <section>
+        <div class="card-pic"><img src="images/card_pic.png" /></div>
+      </section>
+      <div class="bindBtn">查询</div>
+    </app>   
+  </body>
+</html>
