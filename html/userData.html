@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="x5-fullscreen" content="true"/>
+    <meta name="full-screen" content="yes"/>
+    <title>个人资料</title>
+    <link type="text/css" rel="stylesheet" href="./css/reset.css">
+    <link type="text/css" rel="stylesheet" href="./css/index.css">
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <style type="text/css">
+    	.bg{
+    		background: #fff;
+    		overflow: hidden;
+    	}
+      	.inputCard{
+	        padding: 0 0 .2rem .15rem;
+	        margin-bottom: .1rem;
+	        overflow: hidden;
+	        background: #fff;
+      	}
+      	section.last{
+      		margin-bottom: 0;
+      	}
+      	.inputCard>div{
+	      	height: .33rem;
+	      	line-height: .33rem;
+	      	margin-top: .16rem;
+      	}
+      	.inputCard>div>label.onLabel{
+	      	font-size: .14rem;
+	      	color: #999;
+	      	display: inline-block;
+	    	width: 20%;
+	    	text-align: center;
+	    	margin-right: .25rem;
+      	}
+	    .inputCard>div>label>a{
+	      	color: #999;
+	    }
+	    .inputCard>div>label>input{
+	    	vertical-align: -2px;
+	    	margin-right: .1rem;
+	    }
+	    .inputCard>div>div{
+	    	position: relative;
+	    	display: inline-block;
+	    	width: 34%;
+	    }
+	    .inputCard>div>div.long{
+	    	width: 70%;
+	    }
+      	.inputCard>div>input,.inputCard>div>div>input{
+      		width: 70%;
+	      	border: none;
+	      	border-bottom: 1px solid #d7d8d9;
+	      	font-size: .14rem;
+	      	color: #333333;
+	      	padding-bottom: .1rem;
+    		vertical-align: 0;
+      	}
+      	.inputCard>div>div>input.min{
+      		width: 100%;
+      	}
+      	.bindBtn{
+	        height: .44rem;
+	        line-height: .44rem;
+	        background: #1aa2ff;
+	        color: #fff;
+	        font-size: .17rem;
+	        text-align: center;
+	        border-radius: .3rem;
+	        margin: .18rem .15rem .25rem;
+      	}
+      	.w2{
+      		letter-spacing:2em; 
+			margin-right:-2em;
+      	}
+      	.w3{  
+			letter-spacing:0.5em;
+			margin-right:-0.5em;
+		}
+		.arrow-bottom{
+			position: absolute;
+		    top: 50%;
+		    margin-top: -.045rem;
+		    right: .06rem;
+			display: inline-block;
+			width: .15rem;
+			height: .09rem;
+			background: url('images/ico_bottom.png');
+			background-size: 100% 100%;
+		}
+
+		.tipBox{
+			position: absolute;
+		    background: rgba(0,0,0,0.6);
+		    z-index: 100;
+		    top: 0;
+		    bottom: 0;
+		    width: 100%;
+		    display: none;
+		}
+		.tip{
+			width: 80%;
+		    height: 3rem;
+		    position: absolute;
+		    top: 50%;
+		    margin-top: -1.5rem;
+		    margin: -1.5rem auto 0;
+		    left: 50%;
+		    margin-left: -40%;
+		    background: #fff;
+		    border-radius: .08rem;
+		    overflow: scroll;
+		    padding: .2rem;
+		}
+		.tip>div{
+			margin-bottom: .1rem;
+		    font-size: .14rem;
+		    height: .2rem;
+		    line-height: .18rem;
+		}
+		.tip>div>label{
+			display: inline-block;
+			width: 100%;
+		}
+		.tip input{
+			margin-right: .1rem;
+		    vertical-align: top;
+		}
+    </style>
+  	</head>
+  	<body>
+    <app>
+      	<header>
+	        <span class="return"></span>
+	        <p>个人资料</p>
+      	</header>
+      	<section class="inputCard">
+	      	<div>
+	      		<label for="name" class="onLabel"><a class="w2">姓名</a></label>
+	      		<input type="text" id="name" />
+	      	</div>
+	      	<div>
+	      		<label class="onLabel"><a>收件地址</a></label>
+	      		<div>
+	      			<input type="text" readonly unselectable="on" class="min" onfocus="showTip(0)" placeholder="省份" />
+	      			<span class="arrow-bottom"></span>
+	      		</div>
+	      		<div>
+	      			<input type="text" readonly unselectable="on" class="min" onfocus="showTip(1)"  placeholder="区县" />
+	      			<span class="arrow-bottom"></span>
+	      		</div>
+	      	</div>
+	      	<div>
+	      		<label class="onLabel"></label>
+	      		<input type="text" />
+	      	</div>
+      	</section>
+      	<section class="inputCard">
+      		<div>
+	      		<label class="onLabel"><a>证件类型</a></label>
+	      		<label><input name="card" type="radio" value="" checked />身份证 </label>
+	      		<label><input name="card" type="radio" value="" />军官证 </label>
+	      		<label><input name="card" type="radio" value="" />护照 </label>
+	      	</div>
+	      	<div>
+	      		<label for="id" class="onLabel"><a>证件号码</a></label>
+	      		<input type="text" id="id" />
+	      	</div>
+      	</section>
+      	<section class="inputCard last">
+      		<div>
+	      		<label class="onLabel"><a class="w3">车牌号</a></label>
+	      		<div>
+	      			<input type="text" readonly unselectable="on" class="min" onfocus="showTip(2)" placeholder="京" />
+	      			<span class="arrow-bottom"></span>
+	      		</div>
+	      		<div>
+	      			<input type="text" class="min" />
+	      		</div>
+	      	</div>
+	      	<div>
+	      		<label class="onLabel"></label>
+	      		<div>
+	      			<input type="text" readonly unselectable="on" class="min" onfocus="showTip(2)" placeholder="请选择" />
+	      			<span class="arrow-bottom"></span>
+	      		</div>
+	      		<div>
+	      			<input type="text" class="min" />
+	      		</div>
+	      	</div>
+	      	<div>
+	      		<label class="onLabel"><a>默认发票</a></label>
+	      		<div class="long">
+	      			<input type="text" readonly unselectable="on" class="min" onfocus="showTip(3)" placeholder="企业" />
+	      			<span class="arrow-bottom"></span>
+	      		</div>
+	      	</div>
+	      	<div>
+	      		<label class="onLabel"></label>
+	      		<input type="text" placeholder="请输入发票抬头" />
+	      	</div>
+      	</section>
+      	<div class="bg">
+      		<div class="bindBtn">确定</div>
+      	</div>
+      	
+      	<div class="tipBox" onclick="hideTip(0)">
+			<div class="tip">
+				<div>
+					<label><input name="city" type="radio" value="北京" />北京</label>
+				</div>
+				<div>
+					<label><input name="city" type="radio" value="上海" />上海</label>
+				</div>
+				<div>
+					<label><input name="city" type="radio" value="杭州" />杭州</label>
+				</div>
+				<div>
+					<label><input name="city" type="radio" value="天津" />天津</label>
+				</div>
+				<div>
+					<label><input name="city" type="radio" value="河北" />河北</label>
+				</div>
+			</div>
+		</div>
+		<div class="tipBox" onclick="hideTip(1)">
+			<div class="tip">
+				<div>
+					<label><input name="area" type="radio" value="朝阳区" />朝阳区</label>
+				</div>
+				<div>
+					<label><input name="area" type="radio" value="海淀区" />海淀区</label>
+				</div>
+				<div>
+					<label><input name="area" type="radio" value="通州区" />通州区</label>
+				</div>
+				<div>
+					<label><input name="area" type="radio" value="西城区" />西城区</label>
+				</div>
+				<div>
+					<label><input name="area" type="radio" value="东城区" />东城区</label>
+				</div>
+			</div>
+		</div>
+		<div class="tipBox" onclick="hideTip(2)">
+			<div class="tip">
+				<div>
+					<label><input name="plate" type="radio" value="京" checked />京</label>
+				</div>
+				<div>
+					<label><input name="plate" type="radio" value="冀" />冀</label>
+				</div>
+				<div>
+					<label><input name="plate" type="radio" value="津" />津</label>
+				</div>
+			</div>
+		</div>
+		<div class="tipBox" onclick="hideTip(3)">
+			<div class="tip">
+				<div>
+					<label><input name="invoice" type="radio" value="企业" checked />企业</label>
+				</div>
+				<div>
+					<label><input name="invoice" type="radio" value="个人" />个人</label>
+				</div>
+			</div>
+		</div>
+    </app>
+  	</body>
+  	<script type="text/javascript">
+		function showTip(code){
+			var tip = document.getElementsByClassName('tipBox')
+  			for(var i=0;i<tip.length;i++){
+  				if(i == code){
+  					tip[i].style.display = 'block'
+  				}else{
+  					tip[i].style.display = 'none'
+  				}
+  			}
+  		}
+
+  		function hideTip(code){
+  			var tip = document.getElementsByClassName('tipBox')
+  			tip[code].style.display = 'none'
+  		}
+  	</script>
+</html>

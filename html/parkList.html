@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="x5-fullscreen" content="true"/>
+    <meta name="full-screen" content="yes"/>
+    <title>我要停车</title>
+    <link type="text/css" rel="stylesheet" href="./css/reset.css">
+    <link type="text/css" rel="stylesheet" href="./css/index.css">
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <style type="text/css">
+    	header{
+    		position: fixed;
+    		width: 100%;
+    		z-index: 10;
+    	}
+    	header>div{
+		    display: inline-block;
+		    position: absolute;
+		    top: 0;
+		    right: .15rem;
+		    font-size: .14rem;
+		    color: #ffffff;
+    	}
+    	.change{
+			display: inline-block;
+			width: .12rem;
+			height: .12rem;
+			background: url('images/change.png');
+			background-size: 100% 100%;
+			vertical-align: -2px;
+    	}
+    	.listBox{
+    		padding-top: .5rem;
+    		padding-left: .15rem;
+    		height: 100%;
+    		background: #fff;
+    		overflow: scroll;
+    		padding-bottom: .2rem;
+    	}
+    	.listBox>div{
+    		position: relative;
+    		padding: .15rem 0;
+    		border-bottom: 1px solid #d7d8d9;
+    	}
+    	.listBox p{
+    		margin-bottom: .12rem;
+    	}
+    	.listBox .parkName{
+			font-size: .15rem;
+			color: #333333;
+    	}
+    	.listBox .parkName span.add{
+    		font-size: .11rem;
+    		color: #fff;
+    		text-align: center;
+    		line-height: .15rem;
+    	}
+    	.listBox .active .parkName{
+    		color: #1aa2ff;
+    	}
+    	.listBox .parkRange{
+			font-size: .12rem;
+			color: #999999;
+    	}
+    	.listBox .last{
+    		margin-bottom: 0;
+    	}
+    	.listBox>div>div{
+    		position: absolute;
+		    top: 50%;
+		    right: .15rem;
+		    margin-top: -.24rem;
+    	}
+    	.listBox>div>div>p{
+    		font-size: .12rem;
+    		color: #68707c;
+    	}
+    	.listBox>div.active>div>p{
+    		color: #1aa2ff;
+    	}
+    	.range{
+    		display: inline-block;
+    		width: .1rem;
+    		height: .12rem;
+    		background: url(images/ico-range.png);
+    		background-size: 100% 100%;
+    		vertical-align: -1px;
+    	}
+    	.car{
+    		display: inline-block;
+    		width: .12rem;
+    		height: .1rem;
+    		background: url(images/car.png);
+    		background-size: 100% 100%;
+    		vertical-align: -1px;
+    	}
+    	.map{
+    		display: inline-block;
+    		width: .24rem;
+    		height: .24rem;
+    		background: url(images/map.png);
+    		background-size: 100% 100%;
+    	}
+    	.add{
+    		display: inline-block;
+    		width: .22rem;
+    		height: .15rem;
+    		background: url(images/add-bg.png);
+    		background-size: 100% 100%;
+    	}
+    	.listBox>div.active .map{
+    		background: url(images/map-active.png);
+    		background-size: 100% 100%;
+    	}
+    </style>
+  	</head>
+  	<body>
+    <app>
+      	<header>
+	        <span class="return"></span>
+	        <p>我要停车</p>
+	        <div>
+	        	<span class="change"></span>
+	        	地图模式
+	        </div>        
+      	</header>
+      	<section class="listBox">
+      		<div>
+      			<p class="parkName">BOBO天下城-地下停车场</p>
+      			<p class="parkRange">
+      				<span class="range"></span>
+      				距离<span>0.8</span>km
+      			</p>
+      			<p class="parkRange last">
+      				<span class="car"></span>
+      				剩余车位
+      				<span>126</span>
+      			</p>
+      			<div>
+      				<div class="map"></div>
+      				<p>导航</p>
+      			</div>
+      		</div>
+      		<div class="active">
+      			<p class="parkName">
+      				BOBO天下城-地下停车场
+      				<span class="add">补</span>
+      			</p>
+      			<p class="parkRange">
+      				<span class="range"></span>
+      				距离<span>0.8</span>km
+      			</p>
+      			<p class="parkRange last">
+      				<span class="car"></span>
+      				剩余车位
+      				<span>126</span>
+      			</p>
+      			<div>
+      				<div class="map"></div>
+      				<p>导航</p>
+      			</div>
+      		</div>
+      		<div>
+      			<p class="parkName">BOBO天下城-地下停车场</p>
+      			<p class="parkRange">
+      				<span class="range"></span>
+      				距离<span>0.8</span>km
+      			</p>
+      			<p class="parkRange last">
+      				<span class="car"></span>
+      				剩余车位
+      				<span>126</span>
+      			</p>
+      			<div>
+      				<div class="map"></div>
+      				<p>导航</p>
+      			</div>
+      		</div>
+      	</section>
+    </app>
+  	</body>
+  	<script type="text/javascript">
+  	</script>
+</html>
