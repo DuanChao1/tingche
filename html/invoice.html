@@ -10,6 +10,100 @@
     <link type="text/css" rel="stylesheet" href="./css/index.css">
     <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
     <style type="text/css">
+    	body{
+    		background: #fff;
+    	}
+    	section{
+    		padding: 0 .15rem;
+    		overflow: hidden;
+    	}
+    	.arrow-bottom{
+			position: absolute;
+		    top: 50%;
+		    margin-top: -.08rem;
+		    right: .06rem;
+			display: inline-block;
+			width: .15rem;
+			height: .09rem;
+			background: url('images/ico_bottom.png');
+			background-size: 100% 100%;
+		}
+		section>div{
+			position: relative;
+			margin: .2rem 0;
+		}
+		section>div>div input{
+			width: 100%;
+		    border: none;
+		    border-bottom: 1px solid #d7d8d9;
+		    font-size: .14rem;
+		    color: #666666;
+		    padding-left: .8rem;
+		    padding-bottom: .1rem;
+		    box-sizing: border-box;
+		}
+		section>div>label{
+			position: absolute;
+			bottom: .08rem;
+			font-size: .14rem;
+    		color: #999999;
+		}
+		.explain{
+			margin: 0 .15rem;
+			padding: .2rem;
+			font-size: .12rem;
+			color: #999999;
+			background: #fbfbfb;
+			border: 1px solid #e5e7e8;
+		}
+		.seeBtn{
+			margin: .25rem .15rem;
+			height: .44rem;
+			line-height: .44rem;
+			background: #1aa2ff;
+			text-align: center;
+			font-size: .17rem;
+			color: #fff;
+			border-radius: .4rem;
+		}
+
+		.tipBox{
+			position: absolute;
+		    background: rgba(0,0,0,0.6);
+		    z-index: 100;
+		    top: 0;
+		    bottom: 0;
+		    width: 100%;
+		    display: none;
+		}
+		.tip{
+			width: 80%;
+		    height: 3rem;
+		    position: absolute;
+		    top: 50%;
+		    margin-top: -1.5rem;
+		    margin: -1.5rem auto 0;
+		    left: 50%;
+		    margin-left: -40%;
+		    background: #fff;
+		    border-radius: .08rem;
+		    overflow: scroll;
+		    padding: .2rem;
+		}
+		.tip>div{
+			margin-bottom: .1rem;
+		    font-size: .14rem;
+		    height: .2rem;
+		    line-height: .18rem;
+		}
+		.tip>div>label{
+			display: inline-block;
+			width: 100%;
+		}
+		.tip input{
+			margin-right: .1rem;
+		    vertical-align: top;
+		}
     </style>
   	</head>
   	<body>
@@ -19,10 +113,58 @@
 	        <p>发票</p>
       	</header>
       	<section>
-      		
+      		<div>
+	      		<label><a>发票类型</a></label>
+	      		<div>
+	      			<input type="text" readonly unselectable="on" onfocus="showTip(0)" placeholder="企业" />
+	      			<span class="arrow-bottom"></span>
+	      		</div>
+	      	</div>
+	      	<div>
+	      		<label><a>发票抬头</a></label>
+	      		<div>
+	      			<input type="text" placeholder="请输入发票抬头" />
+	      		</div>
+	      	</div>
       	</section>
+      	<div class="explain">
+      		<p>发票开具说明：</p>
+      		<p>一、适用对象</p>
+      		<p>适用采用网上申报方式的纳税人。非正常户、注销户除外。</p>
+      		<p>对于非电子申报户目前暂不提供此项网上申请服务。</p>
+      		<p>二、用户登录</p>
+      		<p>电子申报户登录“网上办税服务中心”，点击“涉税申请-网上审批”，选择“企业发票 领购申请”，进入该申请审批事项。</p>
+      		<p>三、操作步骤</p>
+      		<p>（一）纳税人应认真阅读相关规定及说明事项，按要求认真填写《企业发票领购审批表》内容，确认无误后提交申请。</p>
+      	</div>
+      	<div class="seeBtn">查看发票</div>
+      	<div class="tipBox" onclick="hideTip(0)">
+			<div class="tip">
+				<div>
+					<label><input name="type" type="radio" value="企业" />企业</label>
+				</div>
+				<div>
+					<label><input name="type" type="radio" value="个人" />个人</label>
+				</div>
+			</div>
+		</div>
     </app>
   	</body>
   	<script type="text/javascript">
+  		function showTip(code){
+			var tip = document.getElementsByClassName('tipBox')
+  			for(var i=0;i<tip.length;i++){
+  				if(i == code){
+  					tip[i].style.display = 'block'
+  				}else{
+  					tip[i].style.display = 'none'
+  				}
+  			}
+  		}
+
+  		function hideTip(code){
+  			var tip = document.getElementsByClassName('tipBox')
+  			tip[code].style.display = 'none'
+  		}
   	</script>
 </html>

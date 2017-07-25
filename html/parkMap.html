@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="x5-fullscreen" content="true"/>
+    <meta name="full-screen" content="yes"/>
+    <title>我要停车</title>
+    <link type="text/css" rel="stylesheet" href="./css/reset.css">
+    <link type="text/css" rel="stylesheet" href="./css/index.css">
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <style type="text/css">
+      body{
+        background: #fff;
+      }
+    	header{
+    		position: fixed;
+    		width: 100%;
+    		z-index: 10;
+    	}
+    	header>div{
+		    display: inline-block;
+		    position: absolute;
+		    top: 0;
+		    right: .15rem;
+		    font-size: .14rem;
+		    color: #ffffff;
+    	}
+    	.change{
+  			display: inline-block;
+  			width: .12rem;
+  			height: .12rem;
+  			background: url('images/change.png');
+  			background-size: 100% 100%;
+  			vertical-align: -2px;
+    	}
+      footer{
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        padding: .15rem;
+        border-top: 1px solid #cfcfcf;
+        z-index: 100;
+      }
+      .parkName{
+        font-size: .17rem;
+        color: #333333;
+        margin-bottom: .15rem;
+      }
+      .range{
+        display: inline-block;
+        width: .1rem;
+        height: .12rem;
+        background: url(images/ico-range.png);
+        background-size: 100% 100%;
+        vertical-align: -1px;
+      }
+      .car{
+        display: inline-block;
+        width: .12rem;
+        height: .1rem;
+        background: url(images/car.png);
+        background-size: 100% 100%;
+        vertical-align: -1px;
+      }
+      .parkRange{
+        font-size: .11rem;
+        color: #7a7c80;
+        display: inline-block;
+      }
+      .first{
+        margin-right: .09rem;
+        padding-right: .09rem;
+        border-right: 1px solid #cbd0d1;
+      }
+      footer>div{
+        position: relative;
+        padding-bottom: .2rem;
+        border-bottom: 1px solid #d7d8d9;
+      }
+      footer>p{
+        font-size: .11rem;
+        color: #999999;
+        margin: .17rem 0 0 0;
+      }
+      .navBtn{
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: .6rem;
+        height: .6rem;
+        border-radius: .6rem;
+        background: #1aa2ff;
+        line-height: .6rem;
+        text-align: center;
+        box-shadow: 0 2px 4px rgba(204,211,216,0.6);
+        -webkit-box-shadow: 0 2px 4px rgba(204,211,216,0.6);
+        -moz-box-shadow: 0 2px 4px rgba(204,211,216,0.6);
+      }
+      .navBtn p{
+        display: block;
+        font-size: .12rem;
+        color: #fefefe;
+        line-height: 0;
+      }
+      .map{
+        margin: .1rem auto;
+        display: block;
+        width: .19rem;
+        height: .23rem;
+        background: url(images/map-nav.png);
+        background-size: 100% 100%;
+      }
+    </style>
+  	</head>
+  	<body>
+    <app>
+      	<header>
+	        <span class="return"></span>
+	        <p>我要停车</p>
+	        <div>
+	        	<span class="change"></span>
+	        	列表模式
+	        </div>
+      	</header>
+        <footer>
+          <div>
+            <p class="parkName">裕惠大厦-A座停车场</p>
+            <p class="parkRange first">
+              <span class="range"></span>
+                距离<span>0.8</span>千米
+            </p>
+            <p class="parkRange">
+                <span class="car"></span>
+                剩余车位
+                <span>126</span>
+            </p>
+            <div class="navBtn">
+                <div class="map"></div>
+                <p>导航</p>            
+            </div>
+          </div>
+          <p>地址：北京市海淀区路口与路口交叉100米 电话：23564536</p>
+        </footer>
+    </app>
+  	</body>
+  	<script type="text/javascript">
+  	</script>
+</html>
