@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="x5-fullscreen" content="true"/>
+    <meta name="full-screen" content="yes"/>
+    <title>领卡</title>
+    <link type="text/css" rel="stylesheet" href="./css/reset.css">
+    <link type="text/css" rel="stylesheet" href="./css/index.css">
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <style type="text/css">
+      header{position: fixed;width: 100%;z-index: 100;top: 0;}
+    	.return{background-image: url(images/ico-left@2x.png);}
+      .formBox{padding: .1rem .15rem;margin-top: .5rem;}
+      .formBox .twoBox{display: -webkit-box;}
+      .formBox .twoBox .xia{display: inline-block;width: .15rem;height: .09rem;background-image: url(images/icon_xia@2x.png);background-size: 100% 100%;position: absolute;right: .1rem;top: 0;bottom: 0;margin: auto;}
+      .formBox .halfBox{position: relative;padding: .12rem .1rem;background: #fff;border-radius: 4px;width: 48%;margin-right: 4%;}
+      .formBox .halfBox>p{font-size: .14rem;color: #999999;}
+      .formBox .selectBox{display: inline-block;width: .14rem;height: .14rem;float: left;}
+      .formBox .selectBox label{position: absolute;top: 0;left: 0;display: inline-block;width: 100%;height: 100%;}
+      .formBox .selectBox input{display: none;}
+      .formBox .selectBox span{display: inline-block;width: .14rem;height: .14rem;background-image: url(images/quan@2x.png);background-size: 100% 100%;margin-top: .14rem;margin-left: .1rem;}
+      .formBox .selectBox input[type="radio"]:checked + span{background-image: url(images/blue@2x.png);}
+      .formBox>div>.halfBox:last-child{margin-right: 0;}
+      .formBox .selectText{margin-left: .2rem;color: #999999;}
+      .formBox .selectText .price{color: #ff9037;}
+      .formBox>div{margin-bottom: .1rem;}
+      .formBox .inputBox{position: relative;height: .45rem;line-height: .45rem;background: #fff;border-radius: 4px;overflow: hidden;}
+      .formBox .inputBox .phone{display: inline-block;width: .15rem;height: .2rem;background-image: url(images/icon_tele@2x.png);background-size: 100% 100%;}
+      .formBox .inputBox .user{display: inline-block;width: .15rem;height: .17rem;background-image: url(images/icon_people@2x.png);background-size: 100% 100%;}
+      .formBox .inputBox .address{display: inline-block;width: .15rem;height: .18rem;background-image: url(images/icon_locat@2x.png);background-size: 100% 100%;}
+      .formBox .inputBox label{position: absolute;margin: 0 .1rem;display: inline-block;height: 100%;}
+      .formBox .inputBox label>span{vertical-align: middle;}
+      .formBox .inputBox input{width: 100%;border: none;padding: 0 0 0 .35rem;box-sizing: border-box;height: 100%;vertical-align: top;font-size: .14rem;color: #999999;}
+      .read input{display: none;}
+      .read input[type="checkbox"]:checked + span{background-image: url(images/icon_duihao@2x.png);}
+      .read label{}
+      .read span{display: inline-block;width: .14rem;height: .14rem;background-image: url(images/quan@2x.png);background-size: 100% 100%;vertical-align: -2px;}
+      .read p{display: inline-block;font-size: .11rem;color: #999;}
+      .read p a{color: #1aa2ff;}
+
+      .tip li label{display: block;margin-bottom: .1rem;}
+      .tip li label input{display: none;}
+      .tip li label input[type="radio"]:checked + span{background-image: url(images/blue@2x.png);}
+      .tip li label span{display: inline-block;width: .14rem;height: .14rem;background-image: url(images/quan@2x.png);background-size: 100% 100%;margin-right: 5px;vertical-align: -2px;}
+      .tip li label p{display: inline-block;font-size: .14rem;}
+      .tip .tip_content{height: 3rem;overflow: scroll;}
+      .tip{display: none;}
+
+      .confirm{height: .43rem;line-height: .43rem;margin: .4rem .1rem .2rem .1rem;background: #1aa2ff;text-align: center;border-radius: .2rem;color: #fff;font-size: .18rem;}
+      .centerText{margin: 0 .1rem .9rem .1rem;text-align: center;font-size: .11rem;color: #b5b5b5;}
+      .centerText span{color: #1aa2ff;}
+
+      .pic{width: 2.25rem;height: 3.21rem;margin: 0 auto .4rem;}
+      .footer{height: .6rem;line-height: .6rem;background: #e7ebef;color: #333;font-size: .12rem;text-align: center;border-top: 1px solid #dfe2e4;}
+    </style>
+  	</head>
+  	<body>
+    <app>
+    	<header>
+        <span class="return"></span>
+        <p>领卡</p>
+    	</header>
+    	<section class="formBox">
+        <div class="twoBox">
+          <div class="halfBox">
+            <div class="selectBox">
+              <label for="20">               
+                <input type="radio" name="cardNum" id="20" checked="checked" />
+                <span></span>
+              </label>
+            </div>
+            <div class="selectText">
+              <p class="price">20元卡</p>
+              <p>20元工本费，免邮费</p>
+            </div>
+          </div>
+          <div class="halfBox">
+            <div class="selectBox">
+              <label for="99">               
+                <input type="radio" name="cardNum" id="99" />
+                <span></span>
+              </label>
+            </div>
+            <div class="selectText">
+              <p class="price">99元卡</p>
+              <p>17小时停车时长，免工本费和邮费</p>
+            </div>
+          </div>
+        </div>
+        <div class="inputBox">
+          <label for="phone">
+            <span class="phone"></span>
+          </label>
+          <input type="text" id="phone" placeholder="手机号码" />
+        </div>
+        <div class="inputBox">
+          <label for="user">
+            <span class="user"></span>
+          </label>
+          <input type="text" id="user" placeholder="收件人" />
+        </div>
+        <div class="twoBox">
+          <div class="halfBox" onclick="showTip(0)">
+            <p id="province">省市</p>
+            <span class="xia"></span>
+          </div>
+          <div class="halfBox" onclick="showTip(1)">
+            <p id="county">区县</p>
+            <span class="xia"></span>
+          </div>
+        </div>
+        <div class="inputBox">
+          <label for="address">
+            <span class="address"></span>
+          </label>
+          <input type="text" id="address" placeholder="收件地址" />
+        </div>
+        <div class="read">
+          <label>
+            <input type="checkbox" name="ready" />
+            <span></span>
+            <p>我已阅读并同意<a href="javascript:;">《一卡停用户服务协议》</a></p>
+          </label>
+        </div>
+      </section>
+      <div class="confirm">确定</div>
+      <div class="centerText">
+        <p>您注册成功后，我们会将一卡停卡，快递至您的收件地址。如有任何问题，请致电：<span>4000-123-868</span></p>
+      </div>
+      <div>
+        <div class="pic">
+          <img src="images/picture@2x.png" />
+        </div>
+      </div>
+      <div class="footer">没有更多了~ </div>
+
+
+      <!--弹窗-->
+      <div class="tip">
+        <div class="mask"></div>
+        <div class="tip_content">
+          <ul>
+            <li>
+              <label onclick="selectProvince()">
+                <input type="radio" name="province" value="河北省" />
+                <span></span>
+                <p>河北省</p>
+              </label>             
+            </li>
+            <li>
+              <label onclick="selectProvince()">
+                <input type="radio" name="province" value="河南省" />
+                <span></span>
+                <p>河南省</p>
+              </label>             
+            </li>
+            <li>
+              <label onclick="selectProvince()">
+                <input type="radio" name="province" value="山东省" />
+                <span></span>
+                <p>山东省</p>
+              </label>             
+            </li>
+            <li>
+              <label onclick="selectProvince()">
+                <input type="radio" name="province" value="湖南省" />
+                <span></span>
+                <p>湖南省</p>
+              </label>             
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tip">
+        <div class="mask"></div>
+        <div class="tip_content">
+          <ul>
+            <li>
+              <label onclick="selectCounty()">
+                <input type="radio" name="county" value="朝阳区" />
+                <span></span>
+                <p>朝阳区</p>
+              </label>             
+            </li>
+            <li>
+              <label onclick="selectCounty()">
+                <input type="radio" name="county" value="东城区" />
+                <span></span>
+                <p>东城区</p>
+              </label>             
+            </li>
+            <li>
+              <label onclick="selectCounty()">
+                <input type="radio" name="county" value="海淀区" />
+                <span></span>
+                <p>海淀区</p>
+              </label>             
+            </li>
+            <li>
+              <label onclick="selectCounty()">
+                <input type="radio" name="county" value="西城区" />
+                <span></span>
+                <p>西城区</p>
+              </label>             
+            </li>
+          </ul>
+        </div>
+      </div>
+    </app>
+  	</body>
+  	<script type="text/javascript">
+		  $(function() {
+        $('.mask').click(function(){
+          $('.tip').css('display','none')   
+        })
+      });
+
+      function showTip(index){
+        $('.tip').eq(index).css('display','block')
+      }
+
+      function selectProvince(){
+        $('#province').html($("input[name='province']:checked").val())
+        $('.tip').css('display','none')
+      }
+
+      function selectCounty(){
+        $('#county').html($("input[name='county']:checked").val())
+        $('.tip').css('display','none')
+      }
+  	</script>
+</html>

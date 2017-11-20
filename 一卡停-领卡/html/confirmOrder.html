@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="x5-fullscreen" content="true"/>
+    <meta name="full-screen" content="yes"/>
+    <title>领卡成功</title>
+    <link type="text/css" rel="stylesheet" href="./css/reset.css">
+    <link type="text/css" rel="stylesheet" href="./css/index.css">
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <style type="text/css">
+      .return{background-image: url(images/ico-left@2x.png);}
+      app{height: 100%;display: block;overflow: hidden;}
+      section{padding: .1rem;background: #fff;}
+      .user p{font-size: .16rem;color: #000;margin-bottom: .15rem;}
+      .user span{float: right;}
+      .user p.address{font-size: .14rem;color: #666666;margin-bottom: 0;}
+      .addressBg{height: .08rem;background-image: url(images/letter@2x.png);background-size: 100% 100%;margin-bottom: .15rem;}
+      .time{font-size: .18rem;color: #ff9037;margin-bottom: .15rem;}
+      .price{font-size: .14rem;color: #999999;}
+      .price span{float: right;}
+      .priceShow{margin-bottom: .15rem;}
+      .payBox{padding: .1rem 0 0 0;}
+      .payText{padding: 0 .1rem .1rem .1rem;font-size: .14rem;color: #333333;border-bottom: 1px solid #d7d8d9;}
+      .payText span{color: #fd2f2d;}
+      .pay{font-size: .14rem;color: #333333;}
+      .weixin{display: inline-block;width: .18rem;height: .15rem;background-image: url(images/weixin@2x.png);background-size: 100% 100%;vertical-align: -2px;margin-right: .08rem;}
+      .payBox li input{display: none;}
+      .payBox li label{display: block;position: relative;padding: .1rem;}
+      .payBox li label>span{display: inline-block;width: .17rem;height: .17rem;background-image: url(images/quan@2x.png);background-size: 100% 100%;position: absolute;top: 50%;margin-top: -.08rem;right: .1rem;}
+      .payBox li input[type="radio"]:checked + span{background-image: url(images/icon_duihao@2x.png);}
+      .confirm{height: .43rem;line-height: .43rem;margin: .3rem .1rem .1rem .1rem;background: #ff9037;text-align: center;border-radius: .2rem;color: #fff;font-size: .18rem;}
+      .centerText{margin: 0 .1rem .9rem .1rem;text-align: center;font-size: .11rem;color: #b5b5b5;}
+      .centerText a{color: #1aa2ff;}
+    </style>
+  	</head>
+  	<body>
+    <app>
+    	<header>
+        <span class="return"></span>
+        <p>确认订单</p>
+    	</header>
+      <section class="user">
+        <div>
+          <p>小明<span>18612345678</span></p>
+          <p class="address">收货地址：北京市海淀区成府路28号优盛大厦一卡停科技有限公司L1-20</p>
+        </div>
+      </section>
+      <div class="addressBg"></div>
+      <section class="priceShow">
+        <p class="time">17小时</p>
+        <p class="price">免工本费、邮费<span>金额：￥99</span></p>
+      </section>
+      <section class="payBox">
+        <p class="payText">支付金额：<span>￥99</span></p>
+        <ul>
+          <li>
+            <label>
+              <p class="pay"><span class="weixin"></span>微信支付</p>
+              <input type="radio" name="pay" checked="checked" />
+              <span></span>
+            </label>
+          </li>
+        </ul>
+      </section>
+      <div class="confirm">确定</div>
+      <div class="centerText">
+        <p>点击确认支付，即表示您已同意<a href="javascript:;">《一卡停用户服务协议》</a></p>
+      </div>
+    </app>
+  	</body>
+  	<script type="text/javascript">
+		  $(function() {
+        
+      });
+  	</script>
+</html>

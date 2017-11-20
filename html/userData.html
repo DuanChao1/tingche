@@ -48,6 +48,17 @@
 	    	display: inline-block;
 	    	width: 34%;
 	    }
+
+	    /*新加*/
+	    .inputCard>div>div>div{
+	    	width: 100%;
+		    height: 100%;
+		    position: absolute;
+		    top: 0;
+		    left: 0;
+	    }
+	    /*结束*/
+
 	    .inputCard>div>div.long{
 	    	width: 70%;
 	    }
@@ -130,6 +141,12 @@
 			margin-right: .1rem;
 		    vertical-align: top;
 		}
+
+		.noScroll{
+			display: block;
+			height: 100%;
+			overflow: hidden;
+		}
     </style>
   	</head>
   	<body>
@@ -146,11 +163,12 @@
 	      	<div>
 	      		<label class="onLabel"><a>收件地址</a></label>
 	      		<div>
-	      			<input type="text" readonly unselectable="on" class="min" onfocus="showTip(0)" placeholder="省份" />
+	      			<div onclick="showTip(0)"></div>
+	      			<input type="text" class="min" placeholder="省份" />
 	      			<span class="arrow-bottom"></span>
 	      		</div>
 	      		<div>
-	      			<input type="text" readonly unselectable="on" class="min" onfocus="showTip(1)"  placeholder="区县" />
+	      			<input type="text" class="min" onfocus="showTip(1)"  placeholder="区县" />
 	      			<span class="arrow-bottom"></span>
 	      		</div>
 	      	</div>
@@ -225,6 +243,36 @@
 				<div>
 					<label><input name="city" type="radio" value="河北" />河北</label>
 				</div>
+				<div>
+					<label><input name="city" type="radio" value="北京" />北京</label>
+				</div>
+				<div>
+					<label><input name="city" type="radio" value="上海" />上海</label>
+				</div>
+				<div>
+					<label><input name="city" type="radio" value="杭州" />杭州</label>
+				</div>
+				<div>
+					<label><input name="city" type="radio" value="天津" />天津</label>
+				</div>
+				<div>
+					<label><input name="city" type="radio" value="河北" />河北</label>
+				</div>
+				<div>
+					<label><input name="city" type="radio" value="北京" />北京</label>
+				</div>
+				<div>
+					<label><input name="city" type="radio" value="上海" />上海</label>
+				</div>
+				<div>
+					<label><input name="city" type="radio" value="杭州" />杭州</label>
+				</div>
+				<div>
+					<label><input name="city" type="radio" value="天津" />天津</label>
+				</div>
+				<div>
+					<label><input name="city" type="radio" value="河北" />河北</label>
+				</div>
 			</div>
 		</div>
 		<div class="tipBox" onclick="hideTip(1)">
@@ -277,6 +325,7 @@
   			for(var i=0;i<tip.length;i++){
   				if(i == code){
   					tip[i].style.display = 'block'
+  					$('app:first').addClass("noScroll");
   				}else{
   					tip[i].style.display = 'none'
   				}
@@ -286,6 +335,7 @@
   		function hideTip(code){
   			var tip = document.getElementsByClassName('tipBox')
   			tip[code].style.display = 'none'
+  			$('app:first').removeClass("noScroll");
   		}
   	</script>
 </html>

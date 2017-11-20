@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="x5-fullscreen" content="true"/>
+    <meta name="full-screen" content="yes"/>
+    <title>提示</title>
+    <link type="text/css" rel="stylesheet" href="./css/reset.css">
+    <link type="text/css" rel="stylesheet" href="./css/index.css">
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <style type="text/css">
+    	.errorImg{
+    		width: 2.25rem;
+    		margin: 0 auto;
+    	}
+    	.errorText{
+    		width: 2.25rem;
+    		background: #fff;
+    		margin: .1rem auto 0;
+    		padding: .13rem .1rem;
+    		border-radius: 4px;
+    	}
+    	.errorText h4{
+    		font-size: .18rem;
+    		color: #7f761c;
+    		margin-bottom: .08rem;
+    	}
+    	.errorText p{
+    		font-size: .14rem;
+    		color: #181816;
+    	}
+    	.errorText a{
+    		display: none;
+    		padding: .06rem .11rem;
+    		background: #2bc3c2;
+    		color: #fff;
+    		margin-top: .15rem;
+    		margin-right: .08rem;
+    		text-align: center;   		
+    	}
+    	.error_content{
+		    position: absolute;
+		    left: 50%;
+		    top: 50%;
+		    transform: translate(-50%, -50%);
+    	}
+    </style>
+  	</head>
+  	<body>
+    <app>
+      	<header>
+	        <span class="return"></span>
+	        <p>提示</p>
+      	</header>
+      	<div class="error_content">
+      		<!--<div class="errorImg">
+	      		<img src="images/error_img.jpg" />
+	      	</div>-->
+	      	<div class="errorText">
+	      		<h4>提示报告：</h4>
+	      		<p>网络链接失败！</p>
+	      		<a href="javascript:void(history.back())" style="display: inline-block">返回</a>
+	      		<!--需要显示更改CSS display:inline-block;-->
+	      		<a href="">返回首页</a>
+	      	</div>
+      	</div>
+        
+        <!--警告提示框-->
+        <!--<div class="tip">
+          <div class="mask"></div>
+          <div class="tip_content">
+            <span class="ico warning"></span>
+            <span>此操作不可撤回，是否继续？</span>
+            <div>
+              <span class="cancel">取消</span>
+              <span>确定</span>
+            </div>
+          </div>       
+        </div>-->
+        
+        <!--失败提示框-->
+        <!--<div class="tip">
+          <div class="mask"></div>
+          <div class="tip_content">
+            <span class="ico error"></span>
+            <span>网络链接失败!</span>
+            <div>
+              <span>确定</span>
+            </div>
+          </div>       
+        </div>-->
+
+        <!--成功提示框-->
+        <!--<div class="tip">
+          <div class="mask"></div>
+          <div class="tip_content">
+            <span class="ico success"></span>
+            <span>恭喜您注册成功！</span>
+            <div>
+              <span>确定</span>
+            </div>
+          </div>
+        </div>-->
+      	
+        <!--提示提示框-->
+        <!--<div class="tip">
+          <div class="mask"></div>
+          <div class="tip_content">
+            <span class="ico info"></span>
+            <span>请记住您的账号密码！</span>
+            <div>
+              <span>确定</span>
+            </div>
+          </div>       
+        </div>-->
+    </app>
+  	</body>
+  	<script type="text/javascript">
+  	</script>
+</html>

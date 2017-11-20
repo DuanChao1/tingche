@@ -48,7 +48,8 @@
       }
       .inputCard{
         padding: 0 .15rem;
-        margin-top: .16rem;
+        /*margin-top: .16rem;*/
+        margin-top: .1rem;
         overflow: hidden;
       }
       .inputCard>div{
@@ -171,7 +172,8 @@
       .loginBtn{
         height: .43rem;
         line-height: .43rem;
-        margin: .14rem .15rem .25rem;
+        /*margin: .14rem .15rem .25rem;*/
+        margin: 0 .15rem .1rem;
         text-align: center;
         color: #fff;
         font-size: .17rem;
@@ -209,8 +211,8 @@
           position: relative;
       }
       footer{
-        position: absolute;
-          bottom: .2rem;
+        /*position: absolute;
+          bottom: .2rem;*/
       }
       footer>p{
         font-size: .11rem;
@@ -296,4 +298,11 @@
       </footer>
     </app>   
   </body>
+  <script type="text/javascript">
+  	$(function(){
+  		var wContact=$('body').height()-$('footer:first').outerHeight();
+        var w=wContact-440;
+        $('footer:first').css('margin-top',w);
+  	})
+  </script>
 </html>

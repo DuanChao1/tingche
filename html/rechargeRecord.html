@@ -18,6 +18,36 @@
         color: #1aa2ff;
       }
 
+      header{
+        position: fixed;
+        width: 100%;
+        z-index: 1001;
+      }
+      .banner{
+        margin-top: 50px;
+      }
+      app{
+        width: 100%;
+        min-height: 100%;
+        position: absolute;
+      }
+      .record_list:nth-last-of-type(3){
+        margin-bottom: 1rem;
+      }
+      .load{
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+        border-top: 1px solid #d7d8d9;
+        background-color: #e1e4e4;
+        height: .38rem;
+        line-height: .37rem;
+      }
+      .load>p{
+        text-align: center;
+        color: #68707C;
+      }
+
       .leftLine{
         position: absolute;
         top: 0;
@@ -29,6 +59,7 @@
       .record_list{
         margin-top: .28rem;
       }
+      
       .recharge{
         display: inline-block;
         width: .19rem;
@@ -102,7 +133,7 @@
 
       .promptBox{
         position: absolute;
-          bottom: .14rem;
+          bottom: .51rem;
           left: .62rem;
           margin-top: .2rem;
         font-size: .11rem;
@@ -164,12 +195,48 @@
             </div>
           </div>
         </div>
+        <div class="record_list">
+          <div class="ico_recharge">
+            <div class="recharge"><img src="images/ico_recharge.png" /></div>
+          </div>
+          <p><span>充值时间：</span>2017年05月03日15:36</p>
+          <div class="recordBox">
+            <div class="recordLeft">
+              <p class="price"><span>￥</span>350</p>
+              <p class="priceText">充值金额</p>
+            </div>
+            <div class="recordRight">
+              <p class="time">100小时畅停</p>
+              <p class="addTime">另送5小时</p>
+            </div>
+          </div>
+        </div>
+        <div class="record_list">
+          <div class="ico_recharge">
+            <div class="recharge"><img src="images/ico_recharge.png" /></div>
+          </div>
+          <p><span>充值时间：</span>2017年05月03日15:36</p>
+          <div class="recordBox">
+            <div class="recordLeft">
+              <p class="price"><span>￥</span>350</p>
+              <p class="priceText">充值金额</p>
+            </div>
+            <div class="recordRight">
+              <p class="time">100小时畅停</p>
+              <p class="addTime">另送5小时</p>
+            </div>
+          </div>
+        </div>
+        <div class="promptBox">
+          <span class="prompt"></span>
+          <span class="promptText">温馨提示：</span>
+          如需开具发票，请致电4000-123-868         
+        </div>
+        <div class="load">
+            <p>点击加载更多</p>
+          </div>
       </div>
-      <div class="promptBox">
-        <span class="prompt"></span>
-        <span class="promptText">温馨提示：</span>
-        如需开具发票，请致电4000-123-868
-      </div>
+      
     </app>   
   </body>
 </html>

@@ -34,16 +34,18 @@
     	.listBox{
     		padding-top: .5rem;
     		padding-left: .15rem;
-    		height: 100%;
+    		/*height: 100%;*/
     		background: #fff;
-    		overflow: scroll;
-    		padding-bottom: .2rem;
+    		overflow: auto;
     	}
     	.listBox>div{
     		position: relative;
     		padding: .15rem 0;
     		border-bottom: 1px solid #d7d8d9;
     	}
+      .listBox>div:last-child{
+        border-bottom: none;
+      }
     	.listBox p{
     		margin-bottom: .12rem;
     	}
@@ -114,6 +116,16 @@
     		background: url(images/map-active.png);
     		background-size: 100% 100%;
     	}
+
+      .load{
+        border-top: 1px solid #d7d8d9;
+        background-color: #e1e4e4;
+      }
+      .load>p{
+        padding: .1rem;
+        text-align: center;
+        color: #68707C;
+      }
     </style>
   	</head>
   	<body>
@@ -178,7 +190,74 @@
       				<p>导航</p>
       			</div>
       		</div>
+          <div>
+            <p class="parkName">BOBO天下城-地下停车场</p>
+            <p class="parkRange">
+              <span class="range"></span>
+              距离<span>0.8</span>km
+            </p>
+            <p class="parkRange last">
+              <span class="car"></span>
+              剩余车位
+              <span>126</span>
+            </p>
+            <div>
+              <div class="map"></div>
+              <p>导航</p>
+            </div>
+          </div>
+          <div>
+            <p class="parkName">BOBO天下城-地下停车场</p>
+            <p class="parkRange">
+              <span class="range"></span>
+              距离<span>0.8</span>km
+            </p>
+            <p class="parkRange last">
+              <span class="car"></span>
+              剩余车位
+              <span>126</span>
+            </p>
+            <div>
+              <div class="map"></div>
+              <p>导航</p>
+            </div>
+          </div>
+          <div>
+            <p class="parkName">BOBO天下城-地下停车场</p>
+            <p class="parkRange">
+              <span class="range"></span>
+              距离<span>0.8</span>km
+            </p>
+            <p class="parkRange last">
+              <span class="car"></span>
+              剩余车位
+              <span>126</span>
+            </p>
+            <div>
+              <div class="map"></div>
+              <p>导航</p>
+            </div>
+          </div>
+          <div>
+            <p class="parkName">BOBO天下城-地下停车场</p>
+            <p class="parkRange">
+              <span class="range"></span>
+              距离<span>0.8</span>km
+            </p>
+            <p class="parkRange last">
+              <span class="car"></span>
+              剩余车位
+              <span>126</span>
+            </p>
+            <div>
+              <div class="map"></div>
+              <p>导航</p>
+            </div>
+          </div>          
       	</section>
+        <div class="load">
+          <p>点击加载更多</p>
+        </div>
     </app>
   	</body>
   	<script type="text/javascript">

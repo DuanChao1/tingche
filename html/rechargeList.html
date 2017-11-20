@@ -10,24 +10,25 @@
     <link type="text/css" rel="stylesheet" href="./css/index.css">
     <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
     <style type="text/css">
+      section{
+        padding: 0 .15rem;
+      }
+
       .listBox{
-        margin: .15rem;
-        height: 1.05rem;
         background: url('images/rechargeList_bg.png');
         background-size: 100% 100%;
-        overflow: hidden;
+        display: table;
+        width: 100%;
+        margin: .15rem 0;
       }
       .time{
-        width: .8rem;
           text-align: center;
-          height: .84rem;
-          margin: .08rem 0;
           border-right: 1px dashed #d8d8d8;
-          float: left;
+          display: table-cell;
+          width: 24%;
       }
       .timeNum{
-        margin-top: .1rem;
-        font-size: .3rem;
+        font-size: .24rem;
         color: #333333;
       }
       .timeText{
@@ -35,12 +36,12 @@
         color: #a0a0a0;
       }
       .timeInfo{
-        margin-left: .15rem;
-          float: left;
-          margin-top: .28rem;
+        display: table-cell;
+        vertical-align: middle;
+        padding-left: .1rem;
       }
       .parkTime{
-        font-size: .16rem;
+        font-size: .14rem;
         color: #333333;
       }
       .addTime{
@@ -48,14 +49,14 @@
         color: #ff9037;
       }
       .price{
-        width: .96rem;
-        float: right;
-        height: 1.01rem;
         background: url('images/price_bg.png');
         background-size: 100% 100%;
         text-align: center;
-          font-size: .13rem;
-          color: #fff;
+        font-size: .13rem;
+        color: #fff;
+        display: table-cell;
+        width: 26%;
+        height: 1rem;
       }
       .price .priceNum{
         margin-top: .26rem;

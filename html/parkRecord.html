@@ -10,6 +10,14 @@
     <link type="text/css" rel="stylesheet" href="./css/index.css">
     <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
     <style type="text/css">
+      header{
+        position: fixed;
+        width: 100%;
+        z-index: 1000;
+      }
+      .banner{
+        padding-top: .5rem;
+      }
       .white_bg>.return{
         background: url('images/ico-leftBlue.png');
         background-size: 100% 100%;
@@ -29,6 +37,9 @@
       .record_list{
         margin-top: .28rem;
         margin-bottom: .28rem;
+      }
+      .record_list:last-child{
+        margin-bottom: 0;
       }
       .recharge{
         display: inline-block;
@@ -120,6 +131,19 @@
         font-size: .11rem;
         color: #ff9037;
       }
+      .record{
+        position: relative;
+        overflow: hidden;
+      }
+      .load{
+        border-top: 1px solid #d7d8d9;
+        background-color: #e1e4e4;
+      }
+      .load>p{
+        padding: .1rem;
+        text-align: center;
+        color: #68707C;
+      }
     </style>
   </head>
   <body>
@@ -155,6 +179,33 @@
           <div class="recordBox">
             <p>停车时长： <span>8小时12分钟</span></p>
           </div>
+        </div>
+        <div class="record_list">
+          <div class="ico_recharge">
+            <div class="recharge"><img src="images/ico_parking.png" /></div>
+          </div>
+          <p class="date">2016年12月31日</p>
+          <p class="address">望京SOHO</p>
+          <p class="date-info date-first">进场时间： <span>07:31</span></p>
+          <p class="date-info">离场时间： <span>08:59</span></p>
+          <div class="recordBox">
+            <p>停车时长： <span>8小时12分钟</span></p>
+          </div>
+        </div>
+        <div class="record_list">
+          <div class="ico_recharge">
+            <div class="recharge"><img src="images/ico_parking.png" /></div>
+          </div>
+          <p class="date">2016年12月31日</p>
+          <p class="address">望京SOHO</p>
+          <p class="date-info date-first">进场时间： <span>07:31</span></p>
+          <p class="date-info">离场时间： <span>08:59</span></p>
+          <div class="recordBox">
+            <p>停车时长： <span>8小时12分钟</span></p>
+          </div>
+        </div>
+        <div class="load">
+          <p>点击加载更多</p>
         </div>
       </div>
     </app>   

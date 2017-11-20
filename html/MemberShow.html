@@ -1,0 +1,514 @@
+<html><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="full-screen" content="yes">
+    <title></title>
+    <link href="/Content/Css/reset.css" rel="stylesheet" type="text/css">
+    <link href="/Content/Css/index.css" rel="stylesheet" type="text/css">
+    <script src="/Content/Js/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <style type="text/css">
+        .inputCard>div>div>div{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+        .noScroll{
+            display: block;
+            height: 100%;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <app>
+        
+
+<link href="/Content/Css/membershow.css" rel="stylesheet" type="text/css">
+
+<header>
+    <a href="javascript:history.go(-1);"><span class="return"></span></a>
+    <p>个人资料</p>
+</header>
+<section class="inputCard">
+    <div>
+        <label class="onLabel" for="name"><a class="w2">姓名</a></label>
+        <input id="txtMemberName" type="text" value="胡海">
+    </div>
+    <div>
+        <label class="onLabel"><a>收件地址</a></label>
+        <input id="txtMemberAddress" type="text" value="南法信金关北二路">
+    </div>
+</section>
+<section class="inputCard">
+    <div>
+        <label class="onLabel"><a>证件类型</a></label>
+        <label><input name="rbCard" type="radio" checked="checked" value="0">身份证 </label>
+        <label><input name="rbCard" type="radio" value="1">军官证 </label>
+        <label><input name="rbCard" type="radio" value="2">护照 </label>
+    </div>
+    <div>
+        <label class="onLabel" for="id"><a>证件号码</a></label>
+        <input id="txtIDCard" type="text" value="420203198008062594">
+    </div>
+</section>
+<section class="inputCard last">
+    <div>
+        <label class="onLabel"><a class="w3">车牌号</a></label>
+        <div>
+            <div onclick="showTip(0)"></div>
+            <input class="min" id="txtFirstCode" type="text" placeholder="京">
+            <span class="arrow-bottom"></span>
+        </div>
+        <div>
+            <input class="min" id="txtOnePlateNumber" type="text">
+        </div>
+    </div>
+    <div>
+        <label class="onLabel"></label>
+        <div>
+            <div onclick="showTip(1)"></div>
+            <input class="min" id="txtSecondCode" type="text" placeholder="京">
+            <span class="arrow-bottom"></span>
+        </div>
+        <div>
+            <input class="min" id="txtTwoPlateNumber" type="text">
+        </div>
+    </div>
+
+</section>
+<div class="bg">
+    <div class="bindBtn"><a onclick="doMemberUpdate();" href="javascript:void(0)">确定</a></div>
+</div>
+
+<div class="tipBox" style="display: none;" onclick="hideTip(0)">
+    <div class="tipDiv">
+        <div>
+            <label><input name="plate" onclick="doSetNull('0')" type="radio" checked="" value="">取消</label>
+        </div>
+        <div>
+            <label><input name="plate" onclick="doSetFirstCode('0', '京');" type="radio" checked="" value="京">京</label>
+        </div>
+        <div>
+            <label><input name="plate" onclick="doSetFirstCode('0', '津')" type="radio" value="津">津</label>
+        </div>
+        <div>
+            <label><input name="plate" onclick="doSetFirstCode('0', '沪')" type="radio" value="沪">沪</label>
+        </div>
+        <div>
+            <label><input name="plate" onclick="doSetFirstCode('0', '渝')" type="radio" value="渝">渝</label>
+        </div>
+        <div>
+            <label><input name="plate" onclick="doSetFirstCode('0', '冀')" type="radio" value="冀">冀</label>
+        </div>
+        <div>
+            <label><input name="plate" onclick="doSetFirstCode('0', '豫')" type="radio" value="豫">豫</label>
+        </div>
+        <div>
+            <label><input name="plate" onclick="doSetFirstCode('0', '云')" type="radio" value="云">云</label>
+        </div>
+        <div>
+            <label><input name="plate" onclick="doSetFirstCode('0', '辽')" type="radio" value="辽">辽</label>
+        </div>
+        <div>
+            <label><input name="plate" onclick="doSetFirstCode('0', '黑')" type="radio" value="黑">黑</label>
+        </div>
+        <div>
+            <label><input name="plate" onclick="doSetFirstCode('0', '湘')" type="radio" value="湘">湘</label>
+        </div>
+        <div>
+            <label><input name="plate" onclick="doSetFirstCode('0', '皖')" type="radio" value="皖">皖</label>
+        </div>
+        <div>
+            <label><input name="plate" onclick="doSetFirstCode('0', '鲁')" type="radio" value="鲁">鲁</label>
+        </div>
+        <div>
+            <label><input name="plate" onclick="doSetFirstCode('0', '新')" type="radio" value="新">新</label>
+        </div>
+        <div>
+            <label><input name="plate" onclick="doSetFirstCode('0', '苏')" type="radio" value="苏">苏</label>
+        </div>
+        <div>
+            <label><input name="plate" onclick="doSetFirstCode('0', '浙')" type="radio" value="浙">浙</label>
+        </div>
+        <div>
+            <label><input name="plate" onclick="doSetFirstCode('0', '赣')" type="radio" value="赣">赣</label>
+        </div>
+        <div>
+            <label><input name="plate" onclick="doSetFirstCode('0', '鄂')" type="radio" value="鄂">鄂</label>
+        </div>
+        <div>
+            <label><input name="plate" onclick="doSetFirstCode('0', '桂')" type="radio" value="桂">桂</label>
+        </div>
+        <div>
+            <label><input name="plate" onclick="doSetFirstCode('0', '甘')" type="radio" value="甘">甘</label>
+        </div>
+        <div>
+            <label><input name="plate" onclick="doSetFirstCode('0', '晋')" type="radio" value="晋">晋</label>
+        </div>
+        <div>
+            <label><input name="plate" onclick="doSetFirstCode('0', '蒙')" type="radio" value="蒙">蒙</label>
+        </div>
+        <div>
+            <label><input name="plate" onclick="doSetFirstCode('0', '陕')" type="radio" value="陕">陕</label>
+        </div>
+        <div>
+            <label><input name="plate" onclick="doSetFirstCode('0', '吉')" type="radio" value="吉">吉</label>
+        </div>
+        <div>
+            <label><input name="plate" onclick="doSetFirstCode('0', '闽')" type="radio" value="闽">闽</label>
+        </div>
+        <div>
+            <label><input name="plate" onclick="doSetFirstCode('0', '贵')" type="radio" value="贵">贵</label>
+        </div>
+        <div>
+            <label><input name="plate" onclick="doSetFirstCode('0', '粤')" type="radio" value="粤">粤</label>
+        </div>
+        <div>
+            <label><input name="plate" onclick="doSetFirstCode('0', '青')" type="radio" value="青">青</label>
+        </div>
+        <div>
+            <label><input name="plate" onclick="doSetFirstCode('0', '藏')" type="radio" value="藏">藏</label>
+        </div>
+        <div>
+            <label><input name="plate" onclick="doSetFirstCode('0', '川')" type="radio" value="川">川</label>
+        </div>
+        <div>
+            <label><input name="plate" onclick="doSetFirstCode('0', '宁')" type="radio" value="宁">宁</label>
+        </div>
+        <div>
+            <label><input name="plate" onclick="doSetFirstCode('0', '琼')" type="radio" value="琼">琼</label>
+        </div>
+    </div>
+</div>
+
+<div class="tipBox" style="display: none;" onclick="hideTip(1)">
+    <div class="tipDiv">
+        <div>
+            <label><input name="plate" onclick="doSetNull('1')" type="radio" checked="" value="">取消</label>
+        </div>
+        <div>
+            <label><input name="plate" onclick="doSetFirstCode('1','京')" type="radio" checked="" value="京">京</label>
+        </div>
+        <div>
+            <label><input name="plate" onclick="doSetFirstCode('1', '津')" type="radio" value="津">津</label>
+        </div>
+        <div>
+            <label><input name="plate" onclick="doSetFirstCode('1', '沪')" type="radio" value="沪">沪</label>
+        </div>
+        <div>
+            <label><input name="plate" onclick="doSetFirstCode('1', '渝')" type="radio" value="渝">渝</label>
+        </div>
+        <div>
+            <label><input name="plate" onclick="doSetFirstCode('1', '冀')" type="radio" value="冀">冀</label>
+        </div>
+        <div>
+            <label><input name="plate" onclick="doSetFirstCode('1', '豫')" type="radio" value="豫">豫</label>
+        </div>
+        <div>
+            <label><input name="plate" onclick="doSetFirstCode('1', '云')" type="radio" value="云">云</label>
+        </div>
+        <div>
+            <label><input name="plate" onclick="doSetFirstCode('1', '辽')" type="radio" value="辽">辽</label>
+        </div>
+        <div>
+            <label><input name="plate" onclick="doSetFirstCode('1', '黑')" type="radio" value="黑">黑</label>
+        </div>
+        <div>
+            <label><input name="plate" onclick="doSetFirstCode('1', '湘')" type="radio" value="湘">湘</label>
+        </div>
+        <div>
+            <label><input name="plate" onclick="doSetFirstCode('1', '皖')" type="radio" value="皖">皖</label>
+        </div>
+        <div>
+            <label><input name="plate" onclick="doSetFirstCode('1', '鲁')" type="radio" value="鲁">鲁</label>
+        </div>
+        <div>
+            <label><input name="plate" onclick="doSetFirstCode('1', '新')" type="radio" value="新">新</label>
+        </div>
+        <div>
+            <label><input name="plate" onclick="doSetFirstCode('1', '苏')" type="radio" value="苏">苏</label>
+        </div>
+        <div>
+            <label><input name="plate" onclick="doSetFirstCode('1', '浙')" type="radio" value="浙">浙</label>
+        </div>
+        <div>
+            <label><input name="plate" onclick="doSetFirstCode('1', '赣')" type="radio" value="赣">赣</label>
+        </div>
+        <div>
+            <label><input name="plate" onclick="doSetFirstCode('1', '鄂')" type="radio" value="鄂">鄂</label>
+        </div>
+        <div>
+            <label><input name="plate" onclick="doSetFirstCode('1', '桂')" type="radio" value="桂">桂</label>
+        </div>
+        <div>
+            <label><input name="plate" onclick="doSetFirstCode('1', '甘')" type="radio" value="甘">甘</label>
+        </div>
+        <div>
+            <label><input name="plate" onclick="doSetFirstCode('1', '晋')" type="radio" value="晋">晋</label>
+        </div>
+        <div>
+            <label><input name="plate" onclick="doSetFirstCode('1', '蒙')" type="radio" value="蒙">蒙</label>
+        </div>
+        <div>
+            <label><input name="plate" onclick="doSetFirstCode('1', '陕')" type="radio" value="陕">陕</label>
+        </div>
+        <div>
+            <label><input name="plate" onclick="doSetFirstCode('1', '吉')" type="radio" value="吉">吉</label>
+        </div>
+        <div>
+            <label><input name="plate" onclick="doSetFirstCode('1', '闽')" type="radio" value="闽">闽</label>
+        </div>
+        <div>
+            <label><input name="plate" onclick="doSetFirstCode('1', '贵')" type="radio" value="贵">贵</label>
+        </div>
+        <div>
+            <label><input name="plate" onclick="doSetFirstCode('1', '粤')" type="radio" value="粤">粤</label>
+        </div>
+        <div>
+            <label><input name="plate" onclick="doSetFirstCode('1', '青')" type="radio" value="青">青</label>
+        </div>
+        <div>
+            <label><input name="plate" onclick="doSetFirstCode('1', '藏')" type="radio" value="藏">藏</label>
+        </div>
+        <div>
+            <label><input name="plate" onclick="doSetFirstCode('1', '川')" type="radio" value="川">川</label>
+        </div>
+        <div>
+            <label><input name="plate" onclick="doSetFirstCode('1', '宁')" type="radio" value="宁">宁</label>
+        </div>
+        <div>
+            <label><input name="plate" onclick="doSetFirstCode('1', '琼')" type="radio" value="琼">琼</label>
+        </div>
+    </div>
+</div>
+
+<!--成功提示框-->
+<div class="tip" id="successTip" style="display: none;">
+    <div class="mask"></div>
+    <div class="tip_content">
+        <span class="ico success"></span>
+        <span id="successMessage"></span>
+        <div>
+            <span><a onclick="doCancel('success');" href="javascript:void(0)">确定</a></span>
+        </div>
+    </div>
+</div>
+
+<!--失败提示框-->
+<div class="tip" id="errorTip" style="display: none;">
+    <div class="mask"></div>
+    <div class="tip_content">
+        <span class="ico error"></span>
+        <span id="errorMessage"></span>
+        <div>
+            <span><a onclick="doCancel('error');" href="javascript:void(0)">确定</a></span>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+
+        var certificateType = "0";
+        $("input:radio[value='" + certificateType + "']").attr('checked', 'true');
+        
+        
+        var plateNumber1 = "京A88888";
+
+        //alert(plateNumber1);
+
+        var first = plateNumber1.substring(0, 1);
+        $("#txtFirstCode").val(first);
+        $("input[value*='" + first + "']").prop("checked", true);
+
+        var allNumber1 = plateNumber1.substring(1);
+        $("#txtOnePlateNumber").val(allNumber1);
+
+
+        var plateNumber2 = "京A065ZA";
+
+        //alert(plateNumber2);
+
+        var second = plateNumber2.substring(0, 1);
+        $("#txtSecondCode").val(second);
+        $("input[value*='" + second + "']").prop("checked", true);
+
+        var allNumber2 = plateNumber2.substring(1);
+        $("#txtTwoPlateNumber").val(allNumber2);
+    })
+
+
+    function showTip(code) {
+        var tip = document.getElementsByClassName('tipBox')
+        for (var i = 0; i < tip.length; i++) {
+            if (i == code) {
+                tip[i].style.display = 'block'
+                $('app:first').addClass("noScroll")
+            } else {
+                tip[i].style.display = 'none'
+            }
+        }
+    }
+
+    function hideTip(code) {
+        var tip = document.getElementsByClassName('tipBox')
+        tip[code].style.display = 'none'
+        $('app:first').removeClass("noScroll");
+    }
+
+    function doSetFirstCode(type, city) {
+        
+        if (type == "0")
+        {
+            $("#txtFirstCode").val($("input[value*='" + city + "']").val());
+        }
+        else
+        {
+            $("#txtSecondCode").val($("input[value*='" + city + "']").val());
+        }
+    }
+
+    function doSetNull(type) {
+
+        if (type == "0") {
+            $("#txtFirstCode").val("");
+        }
+        else {
+            $("#txtSecondCode").val("");
+        }
+
+    }
+
+
+    function doMemberUpdate() {
+
+        if ($("#txtMemberName").val() == "") {
+            doDialog("error", "姓名不能为空！");
+            return;
+        }
+
+        if ($("#txtMemberName").val().length > 30) {
+            doDialog("error", "用户名称长度不能超过30个字符！");
+            return;
+        }
+
+        if ($("#txtMemberAddress").val() == "") {
+            doDialog("error", "联系地址不能为空！");
+            return;
+        }
+
+        if ($("#txtMemberAddress").val().length > 100) {
+            doDialog("error", "联系地址长度不能超过100个字符！");
+            return;
+        }
+
+        if ($("#txtIDCard").val() == "") {
+            doDialog("error", "证件号不能为空！");
+            return;
+        }
+
+        var reg = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
+        if (reg.test($("#txtIDCard").val()) === false)
+        {
+            doDialog("error", "证件号错误！");
+            return;
+        }
+
+        if ($("#txtFirstCode").val() == "") {
+            if ($("#txtOnePlateNumber").val() == "") {
+                doDialog("error", "第一车牌号必填！");
+                return;
+            }
+        }
+
+        if ($("#txtOnePlateNumber").val() != "")
+        {
+            if ($("#txtOnePlateNumber").val().length != 6) {
+                doDialog("error", "第一车牌号不正确！");
+                return;
+            }
+        }
+
+        if ($("#txtSecondCode").val() != "") {
+            if ($("#txtTwoPlateNumber").val() == "") {
+                doDialog("error", "第二车牌号必填！");
+                return;
+            }
+        }
+        
+        if ($("#txtTwoPlateNumber").val() != "") {
+            if ($("#txtTwoPlateNumber").val().length != 6) {
+                doDialog("error", "第二车牌号不正确！");
+                return;
+            }
+        }
+
+        var codeType = $("input[name='rbCard']:checked").val();
+        
+        var onePlateNumber = $("#txtFirstCode").val() + $("#txtOnePlateNumber").val();
+        var twoPlateNumber = $("#txtSecondCode").val() + $("#txtTwoPlateNumber").val();
+
+        var memberAddress = $("#txtMemberAddress").val();
+        
+        $.ajax({
+            url: "/Member/MemberUpdate?memberName=" + encodeURI($("#txtMemberName").val()) + "&memberAddress=" + encodeURI($("#txtMemberAddress").val()) + + "&memberCodeType=" + codeType + "&memberIDCode=" + $("#txtIDCard").val() + "&memberPlateNumber1=" + encodeURI(onePlateNumber) + "&memberPlateNumber2=" + encodeURI(twoPlateNumber) + "&rnd=" + Math.random() * 10,
+            type: "post",
+            dataType: "json",
+            success: function (data) {
+                if (data.Result == "200") {
+                    doDialog("success", "修改成功！"); 
+                }
+                else if (data.Result == "201") {
+                    doDialog("error", "未收到登录请求数据！");
+                }
+                else if (data.Result == "202") {
+                    doDialog("error", "您的帐号被锁定或注销，无法登录！");
+                }
+                else if (data.Result == "203") {
+                    doDialog("error", "您输入的手机号有误或未注册，无法登录！");
+                }
+                else {
+                    doDialog("error", "操作异常，请检查！");
+                }
+            }
+        })
+
+    }
+
+    function doDialog(type, message) {
+        if (type == "success") {
+            $("#successMessage").html(message);
+            $("#successTip").show();
+        }
+        else {
+            $("#errorMessage").html(message);
+            $("#errorTip").show();
+        }
+    }
+
+    function doCancel(type) {
+        if (type == "success") {
+            $("#successTip").hide();
+            window.location.href = "/Member/Main?" + Math.random() * 10;
+        }
+        else {
+            $("#errorTip").hide();
+        }
+    }
+
+</script>
+    </app>
+
+<!-- Visual Studio Browser Link -->
+<script id="__browserLink_initializationData" type="application/json">
+    {"appName":"Internet Explorer","requestId":"4c8d1b30264b4d59b6fe4761f2e6e955"}
+</script>
+<script src="http://localhost:51461/8f979ef925fb4625a5f87db9649639c0/browserLink" type="text/javascript" async="async"></script>
+<!-- End Browser Link -->
+
+
+
+</body></html>
