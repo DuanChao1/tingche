@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="x5-fullscreen" content="true"/>
+    <meta name="full-screen" content="yes"/>
+    <title>查询余额</title>
+    <link type="text/css" rel="stylesheet" href="./css/reset.css">
+    <link type="text/css" rel="stylesheet" href="./css/index.css">
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <style type="text/css">
+      .balance-pic{
+        width: 3.12rem;
+        height: 2.01rem;
+        margin: .25rem auto;
+      }
+      .content{
+        margin: 0 .15rem .13rem;
+        font-size: .14rem;
+        color: #999999;
+      }
+      .cardId{
+        display: inline-block;
+        width: .18rem;
+        height: .13rem;
+        margin-right: 4px;
+        vertical-align: -2px;
+        background: url('images/card_id.png');
+        background-size: 100% 100%;
+      }
+      .content .balance_time{
+        color: #333333
+      }
+      .user{
+        display: inline-block;
+        width: .13rem;
+        height: .16rem;
+        margin-right: 9px;
+        vertical-align: -2px;
+        background: url('images/user.png');
+        background-size: 100% 100%;
+      }
+      .content .no_card{
+        color: #fa4a11;
+      }
+      .btn{
+        margin: 0 .15rem .18rem;
+        height: .43rem;
+        line-height: .43rem;
+        text-align: center;
+        border-radius: 1rem;
+        font-size: .17rem;
+        color: #fff;  
+      }
+      .bind{
+        margin-top: .4rem;
+        background: #ff9037;
+      }
+      .recharge{
+        background: #1aa2ff;
+      }
+    </style>
+  </head>
+  <body>
+    <app>
+      <header>
+        <span class="return"></span>
+        <p>查询余额</p>
+      </header>
+      <section>
+        <div class="balance-pic"><img src="images/balance_pic.png" /></div>
+        <p class="content">
+          <span class="cardId"></span>
+          卡内余额：
+          <span class="balance_time">20小时50分</span>
+        </p>
+        <p class="content">
+          <span class="user"></span>
+          所属用户：
+          <span class="no_card">未绑卡</span>
+        </p>
+        <div class="btn bind">绑卡</div>
+        <div class="btn recharge">我要充值</div>
+      </section>
+    </app>   
+  </body>
+</html>

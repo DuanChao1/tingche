@@ -1,0 +1,442 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="x5-fullscreen" content="true"/>
+    <meta name="full-screen" content="yes"/>
+    <title>个人资料</title>
+    <link type="text/css" rel="stylesheet" href="./css/reset.css">
+    <link type="text/css" rel="stylesheet" href="./css/index.css">
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <style type="text/css">
+    	.bg{
+    		background: #fff;
+    		overflow: hidden;
+    	}
+      	.inputCard{
+	        padding: 0 0 .2rem .15rem;
+	        margin-bottom: .1rem;
+	        overflow: hidden;
+	        background: #fff;
+      	}
+      	section.last{
+      		margin-bottom: 0;
+      	}
+      	.inputCard>div{
+	      	height: .33rem;
+	      	line-height: .33rem;
+	      	margin-top: .16rem;
+      	}
+      	.inputCard>div>label.onLabel{
+	      	font-size: .14rem;
+	      	color: #999;
+	      	display: inline-block;
+	    	width: 20%;
+	    	text-align: center;
+	    	margin-right: .25rem;
+      	}
+	    .inputCard>div>label>a{
+	      	color: #999;
+	    }
+	    .inputCard>div>label>input{
+	    	vertical-align: -2px;
+	    	margin-right: .1rem;
+	    }
+	    .inputCard>div>div{
+	    	position: relative;
+	    	display: inline-block;
+	    	width: 34%;
+	    }
+	    .inputCard>div>div.long{
+	    	width: 70%;
+	    }
+      	.inputCard>div>input,.inputCard>div>div>input{
+      		width: 70%;
+	      	border: none;
+	      	border-bottom: 1px solid #d7d8d9;
+	      	font-size: .14rem;
+	      	color: #333333;
+	      	padding-bottom: .1rem;
+    		vertical-align: 0;
+      	}
+      	.inputCard>div>div>input.min{
+      		width: 100%;
+      	}
+      	.bindBtn{
+	        height: .44rem;
+	        line-height: .44rem;
+	        background: #1aa2ff;
+	        color: #fff;
+	        font-size: .17rem;
+	        text-align: center;
+	        border-radius: .3rem;
+	        margin: .18rem .15rem .25rem;
+      	}
+      	.w2{
+      		letter-spacing:2em; 
+			margin-right:-2em;
+      	}
+      	.w3{  
+			letter-spacing:0.5em;
+			margin-right:-0.5em;
+		}
+		.arrow-bottom{
+			position: absolute;
+		    top: 50%;
+		    margin-top: -.045rem;
+		    right: .06rem;
+			display: inline-block;
+			width: .15rem;
+			height: .09rem;
+			background: url('images/ico_bottom.png');
+			background-size: 100% 100%;
+		}
+
+		.tipBox{
+			position: absolute;
+		    background: rgba(0,0,0,0.6);
+		    z-index: 100;
+		    top: 0;
+		    bottom: 0;
+		    width: 100%;
+		    display: none;
+		}
+		.tipDiv{
+			width: 80%;
+		    height: 3rem;
+		    position: absolute;
+		    top: 50%;
+		    margin-top: -1.5rem;
+		    margin: -1.5rem auto 0;
+		    left: 50%;
+		    margin-left: -40%;
+		    background: #fff;
+		    border-radius: .08rem;
+		    overflow: scroll;
+		    padding: .2rem;
+		}
+		.tipDiv>div{
+			margin-bottom: .1rem;
+		    font-size: .14rem;
+		    height: .2rem;
+		    line-height: .18rem;
+		}
+		.tipDiv>div>label{
+			display: inline-block;
+			width: 100%;
+		}
+		.tipDiv input{
+			margin-right: .1rem;
+		    vertical-align: top;
+		}
+    </style>
+  	</head>
+  	<body>
+    <app>
+      	<header>
+	        <span class="return"></span>
+	        <p>个人资料</p>
+      	</header>
+      	<section class="inputCard">
+	      	<div>
+	      		<label for="name" class="onLabel"><a class="w2">姓名</a></label>
+	      		<input type="text" id="name" />
+	      	</div>
+	      	<div>
+	      		<label class="onLabel"><a>收件地址</a></label>
+	      		<input type="text" id="address" />
+	      	</div>
+	      	
+      	</section>
+      	<section class="inputCard">
+      		<div>
+	      		<label class="onLabel"><a>证件类型</a></label>
+	      		<label><input name="card" type="radio" value="" checked />身份证 </label>
+	      		<label><input name="card" type="radio" value="" />军官证 </label>
+	      		<label><input name="card" type="radio" value="" />护照 </label>
+	      	</div>
+	      	<div>
+	      		<label for="id" class="onLabel"><a>证件号码</a></label>
+	      		<input type="text" id="id" />
+	      	</div>
+      	</section>
+      	<section class="inputCard last">
+      		<div>
+	      		<label class="onLabel"><a class="w3">车牌号</a></label>
+	      		<div>
+	      			<input id="txtFirstCode" type="text"  unselectable="on" class="min" onclick="showTip(0)" placeholder="京" />
+	      			<span class="arrow-bottom"></span>
+	      		</div>
+	      		<div>
+	      			<input type="text" class="min" />
+	      		</div>
+	      	</div>
+	      	<div>
+	      		<label class="onLabel"></label>
+	      		<div>
+	      			<input id="txtSecondCode" type="text" unselectable="on" class="min" onclick="showTip(1)" placeholder="请选择" />
+	      			<span class="arrow-bottom"></span>
+	      		</div>
+	      		<div>
+	      			<input type="text" class="min" />
+	      		</div>
+	      	</div>
+	      	
+      	</section>
+      	<div class="bg">
+      		<div class="bindBtn">确定</div>
+      	</div>
+      	
+		<div class="tipBox" onclick="hideTip(0)">
+			<div class="tipDiv">
+				<div>
+					<label><input name="plate" type="radio" value="" onclick="doSetNull('0')" checked />取消</label>
+				</div>
+				<div>
+					<label><input name="plate" type="radio" value="京" onclick="doSetFirstCode('0', '京')" checked />京</label>
+				</div>
+				<div>
+					<label><input name="plate" type="radio" value="津" onclick="doSetFirstCode('0', '津')" />津</label>
+				</div>
+				<div>
+					<label><input name="plate" type="radio" value="沪" onclick="doSetFirstCode('0', '沪')" />沪</label>
+				</div>
+				<div>
+					<label><input name="plate" type="radio" value="渝" onclick="doSetFirstCode('0', '渝')" />渝</label>
+				</div>
+				<div>
+					<label><input name="plate" type="radio" value="冀" onclick="doSetFirstCode('0', '冀')" />冀</label>
+				</div>
+				<div>
+					<label><input name="plate" type="radio" value="豫" onclick="doSetFirstCode('0', '豫')" />豫</label>
+				</div>
+				<div>
+					<label><input name="plate" type="radio" value="云" onclick="doSetFirstCode('0', '云')" />云</label>
+				</div>
+				<div>
+					<label><input name="plate" type="radio" value="辽" onclick="doSetFirstCode('0', '辽')" />辽</label>
+				</div>
+				<div>
+					<label><input name="plate" type="radio" value="黑" onclick="doSetFirstCode('0', '黑')" />黑</label>
+				</div>
+				<div>
+					<label><input name="plate" type="radio" value="湘" onclick="doSetFirstCode('0', '湘')" />湘</label>
+				</div>
+				<div>
+					<label><input name="plate" type="radio" value="皖" onclick="doSetFirstCode('0', '皖')" />皖</label>
+				</div>
+				<div>
+					<label><input name="plate" type="radio" value="鲁" onclick="doSetFirstCode('0', '鲁')" />鲁</label>
+				</div>
+				<div>
+					<label><input name="plate" type="radio" value="新" onclick="doSetFirstCode('0', '新')" />新</label>
+				</div>
+				<div>
+					<label><input name="plate" type="radio" value="苏" onclick="doSetFirstCode('0', '苏')" />苏</label>
+				</div>
+				<div>
+					<label><input name="plate" type="radio" value="浙" onclick="doSetFirstCode('0', '浙')" />浙</label>
+				</div>
+				<div>
+					<label><input name="plate" type="radio" value="赣" onclick="doSetFirstCode('0', '赣')" />赣</label>
+				</div>
+				<div>
+					<label><input name="plate" type="radio" value="鄂" onclick="doSetFirstCode('0', '鄂')" />鄂</label>
+				</div>
+				<div>
+					<label><input name="plate" type="radio" value="桂" onclick="doSetFirstCode('0', '桂')" />桂</label>
+				</div>
+				<div>
+					<label><input name="plate" type="radio" value="甘" onclick="doSetFirstCode('0', '甘')" />甘</label>
+				</div>
+				<div>
+					<label><input name="plate" type="radio" value="晋" onclick="doSetFirstCode('0', '晋')" />晋</label>
+				</div>
+				<div>
+					<label><input name="plate" type="radio" value="蒙" onclick="doSetFirstCode('0', '蒙')" />蒙</label>
+				</div>
+				<div>
+					<label><input name="plate" type="radio" value="陕" onclick="doSetFirstCode('0', '陕')" />陕</label>
+				</div>
+				<div>
+					<label><input name="plate" type="radio" value="吉" onclick="doSetFirstCode('0', '吉')" />吉</label>
+				</div>
+				<div>
+					<label><input name="plate" type="radio" value="闽" onclick="doSetFirstCode('0', '闽')" />闽</label>
+				</div>
+				<div>
+					<label><input name="plate" type="radio" value="贵" onclick="doSetFirstCode('0', '贵')" />贵</label>
+				</div>
+				<div>
+					<label><input name="plate" type="radio" value="粤" onclick="doSetFirstCode('0', '粤')" />粤</label>
+				</div>
+				<div>
+					<label><input name="plate" type="radio" value="青" onclick="doSetFirstCode('0', '青')" />青</label>
+				</div>
+				<div>
+					<label><input name="plate" type="radio" value="藏" onclick="doSetFirstCode('0', '藏')" />藏</label>
+				</div>
+				<div>
+					<label><input name="plate" type="radio" value="川" onclick="doSetFirstCode('0', '川')" />川</label>
+				</div>
+				<div>
+					<label><input name="plate" type="radio" value="宁" onclick="doSetFirstCode('0', '宁')" />宁</label>
+				</div>
+				<div>
+					<label><input name="plate" type="radio" value="琼" onclick="doSetFirstCode('0', '琼')" />琼</label>
+				</div>
+			</div>
+		</div>
+
+		<div class="tipBox" onclick="hideTip(1)">
+			<div class="tipDiv">
+				<div>
+					<label><input name="plate" type="radio" value="" onclick="doSetNull('1')" checked />取消</label>
+				</div>
+				<div>
+					<label><input name="plate" type="radio" value="京" onclick="doSetFirstCode('1','京')" checked />京</label>
+				</div>
+				<div>
+					<label><input name="plate" type="radio" value="津" onclick="doSetFirstCode('1', '津')" />津</label>
+				</div>
+				<div>
+					<label><input name="plate" type="radio" value="沪" onclick="doSetFirstCode('1', '沪')" />沪</label>
+				</div>
+				<div>
+					<label><input name="plate" type="radio" value="渝" onclick="doSetFirstCode('1', '渝')" />渝</label>
+				</div>
+				<div>
+					<label><input name="plate" type="radio" value="冀" onclick="doSetFirstCode('1', '冀')" />冀</label>
+				</div>
+				<div>
+					<label><input name="plate" type="radio" value="豫" onclick="doSetFirstCode('1', '豫')" />豫</label>
+				</div>
+				<div>
+					<label><input name="plate" type="radio" value="云" onclick="doSetFirstCode('1', '云')" />云</label>
+				</div>
+				<div>
+					<label><input name="plate" type="radio" value="辽" onclick="doSetFirstCode('1', '辽')" />辽</label>
+				</div>
+				<div>
+					<label><input name="plate" type="radio" value="黑" onclick="doSetFirstCode('1', '黑')" />黑</label>
+				</div>
+				<div>
+					<label><input name="plate" type="radio" value="湘" onclick="doSetFirstCode('1', '湘')" />湘</label>
+				</div>
+				<div>
+					<label><input name="plate" type="radio" value="皖" onclick="doSetFirstCode('1', '皖')" />皖</label>
+				</div>
+				<div>
+					<label><input name="plate" type="radio" value="鲁" onclick="doSetFirstCode('1', '鲁')" />鲁</label>
+				</div>
+				<div>
+					<label><input name="plate" type="radio" value="新" onclick="doSetFirstCode('1', '新')" />新</label>
+				</div>
+				<div>
+					<label><input name="plate" type="radio" value="苏" onclick="doSetFirstCode('1', '苏')" />苏</label>
+				</div>
+				<div>
+					<label><input name="plate" type="radio" value="浙" onclick="doSetFirstCode('1', '浙')" />浙</label>
+				</div>
+				<div>
+					<label><input name="plate" type="radio" value="赣" onclick="doSetFirstCode('1', '赣')" />赣</label>
+				</div>
+				<div>
+					<label><input name="plate" type="radio" value="鄂" onclick="doSetFirstCode('1', '鄂')" />鄂</label>
+				</div>
+				<div>
+					<label><input name="plate" type="radio" value="桂" onclick="doSetFirstCode('1', '桂')" />桂</label>
+				</div>
+				<div>
+					<label><input name="plate" type="radio" value="甘" onclick="doSetFirstCode('1', '甘')" />甘</label>
+				</div>
+				<div>
+					<label><input name="plate" type="radio" value="晋" onclick="doSetFirstCode('1', '晋')" />晋</label>
+				</div>
+				<div>
+					<label><input name="plate" type="radio" value="蒙" onclick="doSetFirstCode('1', '蒙')" />蒙</label>
+				</div>
+				<div>
+					<label><input name="plate" type="radio" value="陕" onclick="doSetFirstCode('1', '陕')" />陕</label>
+				</div>
+				<div>
+					<label><input name="plate" type="radio" value="吉" onclick="doSetFirstCode('1', '吉')" />吉</label>
+				</div>
+				<div>
+					<label><input name="plate" type="radio" value="闽" onclick="doSetFirstCode('1', '闽')" />闽</label>
+				</div>
+				<div>
+					<label><input name="plate" type="radio" value="贵" onclick="doSetFirstCode('1', '贵')" />贵</label>
+				</div>
+				<div>
+					<label><input name="plate" type="radio" value="粤" onclick="doSetFirstCode('1', '粤')" />粤</label>
+				</div>
+				<div>
+					<label><input name="plate" type="radio" value="青" onclick="doSetFirstCode('1', '青')" />青</label>
+				</div>
+				<div>
+					<label><input name="plate" type="radio" value="藏" onclick="doSetFirstCode('1', '藏')" />藏</label>
+				</div>
+				<div>
+					<label><input name="plate" type="radio" value="川" onclick="doSetFirstCode('1', '川')" />川</label>
+				</div>
+				<div>
+					<label><input name="plate" type="radio" value="宁" onclick="doSetFirstCode('1', '宁')" />宁</label>
+				</div>
+				<div>
+					<label><input name="plate" type="radio" value="琼" onclick="doSetFirstCode('1', '琼')" />琼</label>
+				</div>
+			</div>
+		</div>
+		
+    </app>
+  	</body>
+  	<script type="text/javascript">
+		$(function () {
+			
+			var all = "津23456";
+			var first = all.substring(0,1);
+			
+			$("#firstCode").val(first);
+			$("input[value*='"+ first +"']").prop("checked", true);
+		})
+	
+	
+		function showTip(code){
+			var tip = document.getElementsByClassName('tipBox')
+  			for(var i=0;i<tip.length;i++){
+  				if(i == code){
+  					tip[i].style.display = 'block'
+  				}else{
+  					tip[i].style.display = 'none'
+  				}
+  			}
+  		}
+
+  		function hideTip(code){
+  			var tip = document.getElementsByClassName('tipBox')
+  			tip[code].style.display = 'none'
+  		}
+		
+		
+		
+		function doSetFirstCode(type, city) {
+			
+			alert(type);
+			alert(city);
+			
+			if (type == "0")
+			{
+				alert($("input[value*='" + city + "']").val());
+				$("#txtFirstCode").val($("input[value*='" + city + "']").val());
+			}
+			else
+			{
+				alert($("input[value*='" + city + "']").val());
+				$("#txtSecondCode").val($("input[value*='" + city + "']").val());
+			}
+		}
+		
+  	</script>
+</html>
