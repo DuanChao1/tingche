@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<style type="text/css">
+	body{margin: 0;}
+	.container{
+		position: relative;
+		display: inline-block;
+		margin: 100px;
+	}
+	.box{
+		position: absolute;
+    	top: 0;
+    	left: 0;
+    	width: 400px;
+    	height: 400px;
+    	z-index: 100;
+	}
+	#q{
+		width: 70px;
+	    height: 70px;
+	    background: url(sun.png);
+	    background-size: 100% 100%;
+	    border-radius: 40px;
+	    position: absolute;
+	    left: 50%;
+	    margin-left: -35px;
+	    top: -15px;
+	    cursor: pointer;
+	}
+	.watch{
+		width: 320px;
+    	height: 320px;
+    	position: absolute;
+    	top: 40px;
+    	left: 40px;
+    	z-index: 10;
+	}
+	.watch img{
+		width: 100%;
+	}
+</style>
+</head>
+<body>
+	<div class="container" width="400" height="400" id="container">
+		<canvas id="canvasId" width="400" height="400"></canvas>
+	    <div class="box" id="box">
+	        <div class="q" id="q"></div>
+	    </div>
+	    <div class="watch" ><img src="watch.png"></div>
+	</div>
+	<button onclick="cc(1)">上午</button>
+    <button onclick="cc(2)">下午</button>
+</body>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript">
+	document.onselectstart = function(){return false;}
+
+	function splitTime(arr){
+        var amBlock = [];
+        var pmBlock = [];
+        for(var i=0;i<arr.length;i++){
+            var sTime = getSecond(arr[i].startTime);
+            var eTime = getSecond(arr[i].endTime);
+            if(sTime < 43200 && eTime < 43200){
+                amBlock.push(arr[i]);
+            }else if(sTime >= 43200 && eTime >= 43200){
+                pmBlock.push(arr[i]);
+            }else{
+                amBlock.push({'startTime': arr[i].startTime,'endTime': '12:00:00'});
+                pmBlock.push({'startTime': '12:00:00','endTime': arr[i].endTime});
+            }
+        }
+        return {
+            'amBlock': amBlock,
+            'pmBlock': pmBlock
+        }
+    }
+
+	function getSecond(time){
+        var arr = time.split(":"); 
+        var num = 0
+        for(var i=0;i<arr.length;i++){
+          switch (i) {
+            case 0:
+              num = num + (arr[i] * 60 * 60)
+              break;
+            case 1: 
+              num = num + (arr[i] * 60)
+              break;
+            case 2:
+              num = parseInt(num) + parseInt(arr[i])
+              break;
+          }
+        }
+        return num;
+    }
+
+	function checkTime(arroy){
+        if(arroy && arroy.length > 0){
+            var tm = [];
+            for(var i = 0;i<arroy.length;i++){
+                var startSecond = getSecond(arroy[i].startTime);
+                if(arroy[i].endTime == '00:00:00'){arroy[i].endTime = '24:00:00'};
+                var endSecond = getSecond(arroy[i].endTime);
+                tm.push({'s': startSecond/43200 * 360,'e': endSecond/43200 * 360});
+            }
+            return {
+                'tm': tm,
+            }
+        }
+    }
+
+	var time = [{startTime: '03:00:00',endTime: '06:00:00'},{startTime: '09:00:00',endTime: '13:00:00'},{startTime: '14:00:00','endTime': '18:00:00'},{startTime: '19:00:00','endTime': '22:00:00'}]
+    var timeBlock = splitTime(time);
+    var am = checkTime(timeBlock.amBlock).tm;
+    var pm = checkTime(timeBlock.pmBlock).tm;
+    console.log(am);
+
+	var canvas = document.getElementById('canvasId');
+	var ctx =  canvas.getContext('2d');
+	var ox = 200;
+	//ox = $('#container').offset().left + ox
+	var oy = 200;
+	//oy = $('#container').offset().top + oy
+	var or = 180;
+
+    var gradient=ctx.createLinearGradient(200,0,200,400);
+	gradient.addColorStop("0","#000");
+	gradient.addColorStop("0.4","#f00");
+	gradient.addColorStop("1.0","#f00");
+
+	var a = [{'s': 0,'e': 0}]
+    draw(a,0)
+
+    function draw(arr,code){
+		ctx.clearRect(0,0,canvas.width,canvas.height);
+    
+    	ctx.lineWidth = 40;
+    	ctx.lineCap="round";
+
+    	ctx.strokeStyle = '#ccc';
+
+    	ctx.beginPath();
+    	ctx.arc(ox,oy,or,0,Math.PI*360/180,false);
+    	ctx.stroke();
+
+    	for(var i=0;i<arr.length;i++){
+	    	ctx.beginPath();
+	    	if(code == 0){
+	    		ctx.strokeStyle = '#ffda0b';
+	    	}else{
+	    		ctx.strokeStyle = '#1fadff';
+	    	}	    	
+	    	ctx.arc(ox,oy,or,Math.PI*(arr[i].s - 90)/180,Math.PI*(arr[i].e - 90)/180,false);
+	    	ctx.stroke();
+	    }
+    }
+
+    var timeInterval = 0   //区分0:am 1:pm
+
+    function cc(code){
+    	if(code == 1){
+    		draw(am,0)
+    		timeInterval = 0
+    		$('#q').css('background','url(sun.png)')
+    	}else{
+    		draw(pm,1)
+    		timeInterval = 1
+    		$('#q').css('background','url(moon.png)')
+    	}
+    }
+    
+    function getAngle(px,py,mx,my){//获得人物中心和鼠标坐标连线，与y轴正半轴之间的夹角
+        var x = Math.abs(px-mx);
+        var y = Math.abs(py-my);
+        var z = Math.sqrt(Math.pow(x,2)+Math.pow(y,2));
+        var cos = y/z;
+        var radina = Math.acos(cos);//用反三角函数求弧度
+        var angle = Math.floor(180/(Math.PI/radina));//将弧度转换成角度
+
+        if(mx>px&&my>py){//鼠标在第四象限
+            angle = 180 - angle;
+        }
+
+        if(mx==px&&my>py){//鼠标在y轴负方向上
+            angle = 180;
+        }
+
+        if(mx>px&&my==py){//鼠标在x轴正方向上
+            angle = 90;
+        }
+
+        if(mx<px&&my>py){//鼠标在第三象限
+            angle = 180+angle;
+        }
+
+        if(mx<px&&my==py){//鼠标在x轴负方向
+            angle = 270;
+        }
+
+        if(mx<px&&my<py){//鼠标在第二象限
+            angle = 360 - angle;
+        }
+        return angle;
+    }
+
+    function getTime(angle){
+    	if(timeInterval == 0){
+    		var s = 43200/360 * angle
+    		var hour = Math.floor(s/3600)    		
+    		var minute = Math.floor((s - hour * 3600)/60)    		
+    		var second = s - hour * 3600 - minute * 60
+    		if(hour < 10){hour = '0' + hour}
+    		if(minute < 10){minute = '0' + minute}
+    		if(second < 10){second = '0' + second}
+    		var t = hour + ':' + minute + ':' + second
+    		return t
+    	}else{
+    		var s = 43200/360 * angle
+    		var hour = Math.floor(s/3600)    		
+    		var minute = Math.floor((s - hour * 3600)/60)    		
+    		var second = s - hour * 3600 - minute * 60
+    		hour = 12 + hour
+    		if(minute < 10){minute = '0' + minute}
+    		if(second < 10){second = '0' + second}
+    		var t = hour + ':' + minute + ':' + second
+    		return t
+    	}
+    }
+
+    var angle = 0
+
+    $('#q').mousedown(function(e){
+      var centerTop = oy + $('#container').offset().top
+      var centerLeft = ox + $('#container').offset().left
+      var sTop = centerTop - e.clientY
+      var sLeft = centerLeft - e.clientX
+
+      var aa = getAngle(centerLeft,centerTop,e.clientX,e.clientY)
+      console.log(aa)
+      $(document).mousemove(function(e){
+        var aa = getAngle(centerLeft,centerTop,e.clientX,e.clientY)
+        console.log(aa)
+        angle = aa
+        $('#box').css('transform','rotate(' + aa + 'deg)')
+      });
+      $(document).mouseup(function(){
+        $(document).off('mousemove');
+        $(document).unbind('mouseup');
+        var dayTime = getTime(angle)
+        alert(dayTime)
+      });
+    });
+
+    $('#box').click(function(e){
+    	var centerTop = oy + $('#container').offset().top
+      	var centerLeft = ox + $('#container').offset().left
+      	console.log(centerTop + ',' + centerLeft)      	
+      	var sTop = centerTop - e.clientY
+      	var sLeft = centerLeft - e.clientX
+      	var aa = getAngle(centerLeft,centerTop,e.clientX,e.clientY)
+      	angle = aa
+        $('#box').css('transform','rotate(' + aa + 'deg)')
+        var dayTime = getTime(angle)
+        alert(dayTime)
+    })
+</script>
+</html>

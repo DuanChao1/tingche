@@ -35,6 +35,8 @@
 	    	width: 20%;
 	    	text-align: center;
 	    	margin-right: .25rem;
+
+	    	margin-right: 2%;
       	}
 	    .inputCard>div>label>a{
 	      	color: #999;
@@ -60,8 +62,17 @@
 	      	color: #333333;
 	      	padding-bottom: .1rem;
     		vertical-align: 0;
-    		border-radius: 0;
+    		border-radius: 0;			
       	}
+
+      	.inputCard>div>input{
+      		float: left;
+    		margin-top: .08rem;
+      	}
+      	.inputCard>div>label.flLabel{
+			float: left;
+      	}
+
       	.inputCard>div>div>input.min{
       		width: 100%;
       	}
@@ -142,11 +153,11 @@
       	</header>
       	<section class="inputCard">
 	      	<div>
-	      		<label for="name" class="onLabel"><a class="w2">姓名</a></label>
+	      		<label for="name" class="onLabel flLabel"><a class="w2">姓名</a></label>
 	      		<input type="text" id="name" />
 	      	</div>
 	      	<div>
-	      		<label class="onLabel"><a>收件地址</a></label>
+	      		<label class="onLabel flLabel"><a>收件地址</a></label>
 	      		<input type="text" id="address" />
 	      	</div>
 	      	
@@ -159,7 +170,7 @@
 	      		<label><input name="card" type="radio" value="" />护照 </label>
 	      	</div>
 	      	<div>
-	      		<label for="id" class="onLabel"><a>证件号码</a></label>
+	      		<label for="id" class="onLabel flLabel"><a>证件号码</a></label>
 	      		<input type="text" id="id" />
 	      	</div>
       	</section>
